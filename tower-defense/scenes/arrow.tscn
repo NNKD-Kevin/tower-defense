@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b8rdi8rprriwx"]
+
+[ext_resource type="Texture2D" uid="uid://cj2t18mqgx7nq" path="res://assets/towers/Tower_01_weapons/Tower 01 - Level 01 - Projectile.png" id="1_umosx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23jat"]
+atlas = ExtResource("1_umosx")
+region = Rect2(0, 0, 8, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8ifc"]
+atlas = ExtResource("1_umosx")
+region = Rect2(8, 0, 8, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ckq1"]
+atlas = ExtResource("1_umosx")
+region = Rect2(16, 0, 8, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23jat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8ifc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ckq1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vrlf"]
+size = Vector2(6, 39)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=781293837]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=331328948]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_1vivr")
+frame_progress = 0.5537465
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1492703132]
+position = Vector2(-1, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_8vrlf")

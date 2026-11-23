@@ -14,6 +14,10 @@ config/name="tower-defense"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://kequh53k1ukw"
+
 [display]
 
 window/stretch/mode="canvas_items"
