@@ -1,0 +1,22 @@
+LICENCIA
+
+Puedes usar este pack en tus proyectos sin necesidad de dar crédito, aunque siempre se agradece.
+
+Permitido:
+- Usar los archivos en tus proyectos sin atribución.
+- Modificar, editar o adaptar los assets de cualquier forma.
+
+No permitido:
+- Revender, redistribuir o compartir los archivos como asset propio, ya sean los originales o versiones modificadas, incluso si fueron alterados de cualquier forma.
+
+
+LICENSE
+
+You can use this pack in your projects without giving credit, although it is always appreciated.
+
+Allowed:
+- Use the files in your projects without attribution.
+- Modify, edit or adapt assets in any way.
+
+Not allowed:
+- Resell, redistribute or share the files as their own asset, whether they are the originals or modified versions, even if they were altered in any way.
