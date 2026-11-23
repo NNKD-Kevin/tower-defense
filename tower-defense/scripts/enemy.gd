@@ -7,3 +7,4 @@ var speed=100
 
 func _process(delta: float) -> void:
 	health_bar.value=hp
+	
