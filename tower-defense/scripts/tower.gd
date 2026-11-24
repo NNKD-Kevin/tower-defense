@@ -36,7 +36,10 @@ func _process(delta: float) -> void:
 					cooldown.start()
 				break
 
-func _on_animation_finished() -> void:
+
+
+
+func _on_weapon_animation_finished() -> void:
 	if weapon.animation==(type+'fire'):
 		fire()
 		weapon.play(type)
