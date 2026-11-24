@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ct3iyw6q4ddva" path="res://scripts/mapdata.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://dq3mchdqllrmw" path="res://assets/Pixel Plains Free Pack/New Basic Tiles Free.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://gwmqc4666t4j" path="res://scenes/enemy.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bwloref71v63r" path="res://scenes/tower.tscn" id="5_tbgi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("1_0wfyh")
@@ -297,3 +298,6 @@ layer_1/tile_data = PackedInt32Array(262166, 196608, 6, -65533, 393216, 0, 3, 39
 [node name="Enemy" parent="." unique_id=1797707749 instance=ExtResource("3_sugp2")]
 position = Vector2(15, 114)
 collision_layer = 2
+
+[node name="Node2D" parent="." unique_id=600966129 instance=ExtResource("5_tbgi4")]
+position = Vector2(146, 187)
