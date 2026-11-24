@@ -309,5 +309,5 @@ visible = false
 format = 2
 
 [node name="Enemy" parent="." unique_id=1797707749 instance=ExtResource("3_sugp2")]
-position = Vector2(786, 519)
+position = Vector2(15, 114)
 collision_layer = 2
