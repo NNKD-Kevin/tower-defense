@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bwloref71v63r" path="res://scenes/tower.tscn" id="5_tbgi4"]
 [ext_resource type="FontFile" uid="uid://cmpfgwq04rnkk" path="res://assets/Pixelout Personal Use Only.ttf" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://diotq4i3rmyel" path="res://assets/coin.png" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://cw80qamwe3lvp" path="res://assets/towers/Tower 01.png" id="6_tipki"]
+[ext_resource type="Texture2D" uid="uid://1yqmsdfks4wl" path="res://assets/towers/Tower 02.png" id="7_85g3d"]
+[ext_resource type="Texture2D" uid="uid://xi68nacmkowb" path="res://assets/towers/Tower 03.png" id="8_85g3d"]
+[ext_resource type="Texture2D" uid="uid://ivggd5n5ov07" path="res://assets/towers/Tower 05.png" id="9_trceg"]
+[ext_resource type="Texture2D" uid="uid://b88fnj1p03n70" path="res://assets/towers/Tower 06.png" id="10_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://cihcnic8pqvkm" path="res://assets/towers/Tower 07.png" id="11_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://cecr6mejk5qxs" path="res://assets/towers/Tower 08.png" id="12_jbj1t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("1_0wfyh")
@@ -307,6 +314,111 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_size = 5
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ld40"]
+atlas = ExtResource("6_tipki")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_auskg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ld40")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
+atlas = ExtResource("7_85g3d")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2pp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jscy8")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6deb"]
+atlas = ExtResource("8_85g3d")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6deb")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqmmt"]
+atlas = ExtResource("9_trceg")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8vrlf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqmmt")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc10j"]
+atlas = ExtResource("10_a8y0u")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5gy4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc10j")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm3ni"]
+atlas = ExtResource("11_jkv2x")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbdty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm3ni")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og1vs"]
+atlas = ExtResource("12_jbj1t")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u7cuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og1vs")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
 atlas = ExtResource("6_tefeu")
 region = Rect2(0, 0, 16, 16)
@@ -447,6 +559,41 @@ offset_left = 138.0
 offset_top = 406.0
 offset_right = 960.0
 offset_bottom = 610.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Panel" unique_id=205673290]
+position = Vector2(57, 120)
+sprite_frames = SubResource("SpriteFrames_auskg")
+animation = &"1"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Panel" unique_id=1245119515]
+position = Vector2(163, 88)
+sprite_frames = SubResource("SpriteFrames_d2pp6")
+animation = &"1"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Panel" unique_id=1580497809]
+position = Vector2(287, 119)
+sprite_frames = SubResource("SpriteFrames_1vivr")
+animation = &"1"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="CanvasLayer/Panel" unique_id=1725968110]
+position = Vector2(401, 119)
+sprite_frames = SubResource("SpriteFrames_8vrlf")
+animation = &"1"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="CanvasLayer/Panel" unique_id=1138516185]
+position = Vector2(531, 120)
+sprite_frames = SubResource("SpriteFrames_v5gy4")
+animation = &"1"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="CanvasLayer/Panel" unique_id=1566765881]
+position = Vector2(663, 115)
+sprite_frames = SubResource("SpriteFrames_qbdty")
+animation = &"1"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="CanvasLayer/Panel" unique_id=1895700138]
+position = Vector2(765, 84)
+sprite_frames = SubResource("SpriteFrames_u7cuq")
+animation = &"1"
 
 [node name="Shop" type="Button" parent="CanvasLayer" unique_id=1427675814]
 offset_left = 14.0
