@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		for e in Global.enemies:
 			if position.distance_to(e.position)<=range:
 				var direction=(e.position-position).normalized()
-				weapon.rotation=direction.angle()+TAU/4
+				if type=='1': weapon.rotation=direction.angle()-TAU*3/4
 				if cooldown_finished:
 					weapon.play(type+'fire')
 					cooldown_finished=false
