@@ -1,5 +1,4 @@
 extends Node2D
-class_name Tower
 @onready var base: AnimatedSprite2D = $Base
 @onready var weapon: AnimatedSprite2D = $Weapon
 @onready var cooldown: Timer = $Node/cooldown
@@ -11,37 +10,28 @@ var lightning=preload("res://scenes/lightning.tscn")
 var range=150
 var cooldown_finished=true
 var cooldown_time=1
-var menu_on=false
-var dragging=false
-var mouse_on=false
-var bullet=null
 func _ready():
 	cooldown.start()
 	weapon.play(type+'_'+str(level))
 func fire():
 	match type:
 		"1":
-			bullet=arrow.instantiate()
+			var bullet=arrow.instantiate()
+			bullet.range=range
+			get_parent().add_child(bullet)
+			bullet.global_position = global_position
 		"2":
-			bullet=lightning.instantiate()
-	bullet.range=range
-	bullet.add_collision_exception_with(self)
-	get_parent().add_child(bullet)
-	bullet.global_position = global_position
+			var bullet=lightning.instantiate()
+			bullet.range=range
+			get_parent().add_child(bullet)
+			bullet.global_position = global_position
 func _draw() -> void:
-	if menu_on or dragging:
-		draw_circle(Vector2.ZERO,range,Color.WHITE,false,3)
+	draw_circle(Vector2.ZERO,range,Color.WHITE,false,3)
 
 func _on_cooldown_timeout() -> void:
 	cooldown_finished=true
 
-func _input(event: InputEvent) -> void:
-	if mouse_on and Input.is_action_pressed("drag"):
-		menu_on=true
-
-
 func _process(delta: float) -> void:
-	base.play(type+'_'+str(level))
 	if len(Global.enemies)>0:
 		for e in Global.enemies:
 			if position.distance_to(e.position)<=range:
@@ -61,11 +51,3 @@ func _on_weapon_animation_finished() -> void:
 	if weapon.animation==(type+'_'+str(level)+'fire'):
 		fire()
 		weapon.play(type+'_'+str(level))
-
-
-func _on_mouse_exited() -> void:
-	mouse_on=false
-
-
-func _on_mouse_entered() -> void:
-	mouse_on=true
