@@ -6,6 +6,7 @@ extends Node2D
 var type='1'
 var level=1
 var arrow=preload("res://scenes/arrow.tscn")
+var lightning=preload("res://scenes/lightning.tscn")
 var range=150
 var cooldown_finished=true
 var cooldown_time=1
@@ -16,6 +17,11 @@ func fire():
 	match type:
 		"1":
 			var bullet=arrow.instantiate()
+			bullet.range=range
+			get_parent().add_child(bullet)
+			bullet.global_position = global_position
+		"2":
+			var bullet=lightning.instantiate()
 			bullet.range=range
 			get_parent().add_child(bullet)
 			bullet.global_position = global_position
@@ -30,7 +36,7 @@ func _process(delta: float) -> void:
 		for e in Global.enemies:
 			if position.distance_to(e.position)<=range:
 				var direction=(e.position-position).normalized()
-				weapon.rotation=direction.angle()+TAU/4
+				if type=='1' or type=='7': weapon.rotation=direction.angle()-TAU*3/4
 				if cooldown_finished:
 					weapon.play(type+'_'+str(level)+'fire')
 					cooldown_finished=false
