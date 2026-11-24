@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b8rdi8rprriwx"]
 
+[ext_resource type="Script" uid="uid://xheuktodfkee" path="res://scenes/arrow.gd" id="1_23jat"]
 [ext_resource type="Texture2D" uid="uid://cj2t18mqgx7nq" path="res://assets/towers/Tower_01_weapons/Tower 01 - Level 01 - Projectile.png" id="1_umosx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_23jat"]
@@ -35,6 +36,7 @@ animations = [{
 size = Vector2(6, 39)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=781293837]
+script = ExtResource("1_23jat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=331328948]
 rotation = 1.5707964

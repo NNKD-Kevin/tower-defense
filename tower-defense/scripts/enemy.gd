@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 @onready var health_bar: ProgressBar = $HealthBar
 
 var max_hp=100
