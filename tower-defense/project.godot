@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="tower-defense"
+run/main_scene="uid://ueb3qw3leica"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +21,8 @@ Global="*uid://kequh53k1ukw"
 
 [display]
 
+window/size/viewport_width=1050
+window/size/viewport_height=700
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
