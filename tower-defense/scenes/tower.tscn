@@ -60,9 +60,12 @@ animations = [{
 [node name="Node2D" type="Node2D" unique_id=600966129]
 script = ExtResource("1_ay4al")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1773876083]
+[node name="Base" type="AnimatedSprite2D" parent="." unique_id=1773876083]
+position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_1vivr")
-animation = &"2_3"
+animation = &"1_1"
+
+[node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 
 [node name="Node" type="Node" parent="." unique_id=1108158349]
 
