@@ -9,7 +9,6 @@ var hp=max_hp
 var speed=100
 var go=0
 var damage=10
-var moving=true
 
 func _ready() -> void:
 	animation.animation_finished.connect(_on_animation_finished)
@@ -26,8 +25,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	health_bar.value=hp
 	if hp<=0:
-		moving=false
-		animation.play(type+'death')
+		Global.enemies.erase(self)
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	if velocity.x>0:
@@ -37,8 +36,7 @@ func _physics_process(delta: float) -> void:
 	
 	var direction=(Mapdata.road_map1[go]-position).normalized()
 	velocity= direction*speed
-	if moving:
-		var collision=move_and_collide(velocity*delta)
+	var collision=move_and_collide(velocity*delta)
 	
 	if position.distance_to(Mapdata.road_map1[go])<velocity.length()*delta:
 		position=Mapdata.road_map1[go]
@@ -49,9 +47,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_animation_finished() -> void:
-	if animation.animation==type+'death':
-		Global.enemies.erase(self)
-		queue_free()
-		return
 	if animation.animation!=type+'walk':
 		animation.play(type+'walk')
