@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ueb3qw3leica"]
 
 [ext_resource type="Texture2D" uid="uid://kdd0s78fi5ul" path="res://assets/Pixel Plains Free Pack/Trees and bushes.png" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://ct3iyw6q4ddva" path="res://scripts/mapdata.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://dq3mchdqllrmw" path="res://assets/Pixel Plains Free Pack/New Basic Tiles Free.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://gwmqc4666t4j" path="res://scenes/enemy.tscn" id="3_sugp2"]
 
@@ -180,12 +181,19 @@ texture = ExtResource("2_sugp2")
 3:3/0 = 0
 4:3/0 = 0
 5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:3/0 = 0
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:3/0 = 0
+11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
@@ -243,6 +251,7 @@ texture = ExtResource("2_sugp2")
 7:8/0 = 0
 8:8/0 = 0
 9:8/0 = 0
+9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:8/0 = 0
 11:8/0 = 0
 0:9/0 = 0
@@ -279,11 +288,11 @@ texture = ExtResource("2_sugp2")
 
 [sub_resource type="TileSet" id="TileSet_1vivr"]
 physics_layer_0/collision_layer = 1
-physics_layer_1/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jyhfs")
 sources/1 = SubResource("TileSetAtlasSource_tbgi4")
 
 [node name="Node2D" type="Node2D" unique_id=1826028556]
+script = ExtResource("1_jyhfs")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1791794335]
 scale = Vector2(2.188, 2.188)
@@ -300,4 +309,5 @@ visible = false
 format = 2
 
 [node name="Enemy" parent="." unique_id=1797707749 instance=ExtResource("3_sugp2")]
-position = Vector2(820, 317)
+position = Vector2(786, 519)
+collision_layer = 2
