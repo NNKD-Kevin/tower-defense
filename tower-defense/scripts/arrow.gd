@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var animate: AnimatedSprite2D = $AnimatedSprite2D
 const speed=1000
 var a=0
 var range=150
@@ -16,6 +17,7 @@ func _process(delta: float) -> void:
 			var direction=(Global.enemies[a].position-position).normalized()
 			rotation=direction.angle()
 			velocity= direction*speed
+			animate.play('default')
 			var collision=move_and_collide(velocity*delta)
 			if collision:
 				var collider=collision.get_collider()

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ccgcbasonw7if"]
+
+[ext_resource type="Script" uid="uid://daanoifk8at8n" path="res://scripts/lightning.gd" id="1_k2dum"]
+[ext_resource type="Texture2D" uid="uid://bihs71xlcgmuf" path="res://assets/towers/Tower_02_weapons/Tower 02 - Level 01 - Projectile.png" id="2_n7g4i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpx16"]
+atlas = ExtResource("2_n7g4i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybhjs"]
+atlas = ExtResource("2_n7g4i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg4np"]
+atlas = ExtResource("2_n7g4i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfadc"]
+atlas = ExtResource("2_n7g4i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxtiq"]
+atlas = ExtResource("2_n7g4i")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7g4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpx16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybhjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg4np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfadc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxtiq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lightning" type="CharacterBody2D" unique_id=72568304]
+script = ExtResource("1_k2dum")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=588172954]
+sprite_frames = SubResource("SpriteFrames_n7g4i")
+frame_progress = 0.8556327
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=167617647]
