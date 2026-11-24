@@ -1,0 +1,18 @@
+extends CharacterBody2D
+const speed=1000
+var a=0
+var range=150
+func _process(delta: float) -> void:
+	if len(Global.enemies)>0:
+		while (position.distance_to(Global.enemies[a].position)>range):
+			a+=1
+		if a<len(Global.enemies):
+			var direction=(Global.enemies[a].position-position).normalized()
+			rotation=direction.angle()
+			velocity= direction*speed
+			var collision=move_and_collide(velocity*delta)
+			if collision:
+				var collider=collision.get_collider()
+				if collider is Enemy:
+					collider.hp-=10
+				queue_free()

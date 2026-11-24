@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	var direction=(Mapdata.road_map1[go]-position).normalized()
 	velocity= direction*speed
 	var collision=move_and_collide(velocity*delta)
+	
 	if position.distance_to(Mapdata.road_map1[go])<velocity.length()*delta:
 		position=Mapdata.road_map1[go]
 		go+=1

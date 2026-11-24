@@ -8,5 +8,6 @@ func spawn_enemy():
 	e.add_collision_exception_with(self)
 	e.add_collision_exception_with(e)
 	e.add_to_group('enemies')
+	Global.enemies.append(e)
 	add_child(e)
 	
