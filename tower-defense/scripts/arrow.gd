@@ -1,7 +1,13 @@
 extends CharacterBody2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 const speed=1000
 var a=0
 var range=150
+var level=1
+func _ready() -> void:
+	animated_sprite_2d.play(str(level))
+
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0:
 		while (position.distance_to(Global.enemies[a].position)>range):

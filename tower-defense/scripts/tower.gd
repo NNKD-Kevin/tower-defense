@@ -4,12 +4,14 @@ extends Node2D
 @onready var cooldown: Timer = $Node/cooldown
 
 var type='1'
+var level=1
 var arrow=preload("res://scenes/arrow.tscn")
 var range=150
 var cooldown_finished=true
 var cooldown_time=1
 func _ready():
 	cooldown.start()
+	weapon.play(type+'_'+str(level))
 func fire():
 	match type:
 		"1":
@@ -30,7 +32,7 @@ func _process(delta: float) -> void:
 				var direction=(e.position-position).normalized()
 				weapon.rotation=direction.angle()+TAU/4
 				if cooldown_finished:
-					weapon.play(type+'fire')
+					weapon.play(type+'_'+str(level)+'fire')
 					cooldown_finished=false
 					cooldown.wait_time=cooldown_time
 					cooldown.start()
@@ -40,6 +42,6 @@ func _process(delta: float) -> void:
 
 
 func _on_weapon_animation_finished() -> void:
-	if weapon.animation==(type+'fire'):
+	if weapon.animation==(type+'_'+str(level)+'fire'):
 		fire()
-		weapon.play(type)
+		weapon.play(type+'_'+str(level))
