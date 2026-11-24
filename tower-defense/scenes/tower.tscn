@@ -112,16 +112,18 @@ animations = [{
 script = ExtResource("1_ay4al")
 
 [node name="Base" type="AnimatedSprite2D" parent="." unique_id=1773876083]
-position = Vector2(0, 3)
+position = Vector2(-1, 8)
 sprite_frames = SubResource("SpriteFrames_1vivr")
 animation = &"1_1"
 
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
-position = Vector2(1, -9)
+position = Vector2(0, -1)
+rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_23jat")
 
 [node name="Node" type="Node" parent="." unique_id=1108158349]
 
 [node name="cooldown" type="Timer" parent="Node" unique_id=1100249567]
+one_shot = true
 
 [connection signal="timeout" from="Node/cooldown" to="." method="_on_cooldown_timeout"]

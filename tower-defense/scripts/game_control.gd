@@ -14,6 +14,7 @@ func spawn_enemy(type:String):
 	var e=enemy.instantiate()
 	e.add_to_group('enemies')
 	e.type=type
+	Global.enemies.append(e)
 	add_child(e)
 func _process(delta: float) -> void:
 	wave_count.text='Wave '+str(Global.wave)
