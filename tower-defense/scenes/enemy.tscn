@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
-size = Vector2(39, 45)
+size = Vector2(24, 34)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
 bg_color = Color(0.9999998, 0.034839347, 0.19836423, 1)
@@ -67,12 +67,12 @@ corner_radius_bottom_left = 2
 script = ExtResource("1_md0e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=442325771]
-scale = Vector2(2.7, 2.7)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8tegq")
 frame_progress = 0.31795785
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658497212]
-position = Vector2(0, -1.5)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_1vivr")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=299367712]

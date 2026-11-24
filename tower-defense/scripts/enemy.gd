@@ -8,13 +8,13 @@ var go=0
 
 func _process(delta: float) -> void:
 	health_bar.value=hp
-	if position.distance_to(Global.road_map[go+1])<velocity.length():
-		position=Global.road_map[go+1]
+	if position.distance_to(Mapdata.road_map1[go+1])<velocity.length()*delta:
+		position=Mapdata.road_map1[go+1]
 	if go==0:
-		position=Global.road_map1[go]
-	var direction=Global.road_map[go+1]-Global.road_map[go]
-	direction.normalized
+		position=Mapdata.road_map1[go]
+	var direction=Mapdata.road_map1[go+1]-Mapdata.road_map1[go]
+	direction.normalized()
 	velocity= direction*speed
-	move_and_collide()
+	var collision=move_and_collide(velocity*delta)
 	
 	
