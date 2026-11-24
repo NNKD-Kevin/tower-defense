@@ -39,7 +39,7 @@ size = Vector2(6, 39)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=331328948]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_1vivr")
-frame_progress = 0.5537465
+frame_progress = 0.86100197
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1492703132]
 position = Vector2(-1, 0)
