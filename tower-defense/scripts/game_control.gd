@@ -1,7 +1,10 @@
 extends Node2D
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var wave_count: Label = $CanvasLayer/WaveCount
+@onready var coin_count: Label = $CanvasLayer/CoinCount/Label
+@onready var panel: Panel = $CanvasLayer/Panel
 
+var shop_on=false
 var spawning=false
 var enemy=preload('res://scenes/enemy.tscn')
 var index=0
@@ -18,6 +21,9 @@ func spawn_enemy(type:String):
 	add_child(e)
 func _process(delta: float) -> void:
 	wave_count.text='Wave '+str(Global.wave)
+	coin_count.text=':'+str(Global.coins)
+	panel.visible=shop_on
+	
 	
 
 
@@ -38,3 +44,7 @@ func _on_spawn_timer_timeout() -> void:
 	if index >= len(to_spawn):
 		spawning = false
 		spawn_timer.stop()
+
+
+func _on_shop_pressed() -> void:
+	shop_on= not shop_on
