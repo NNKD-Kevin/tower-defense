@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://kdd0s78fi5ul" path="res://assets/Pixel Plains Free Pack/Trees and bushes.png" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://2sxwkf6xd4ae" path="res://scripts/game_control.gd" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://dq3mchdqllrmw" path="res://assets/Pixel Plains Free Pack/New Basic Tiles Free.png" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://gwmqc4666t4j" path="res://scenes/enemy.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bwloref71v63r" path="res://scenes/tower.tscn" id="5_tbgi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
@@ -282,6 +281,30 @@ texture = ExtResource("2_sugp2")
 sources/0 = SubResource("TileSetAtlasSource_jyhfs")
 sources/1 = SubResource("TileSetAtlasSource_tbgi4")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
+bg_color = Color(0.8291128, 0.71638757, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbdty"]
+bg_color = Color(0.5205644, 0.31411725, 0.024739495, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
+bg_color = Color(0.7964649, 0.54335326, 0.007949468, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
 [node name="Node2D" type="Node2D" unique_id=1826028556]
 script = ExtResource("1_tbgi4")
 
@@ -295,9 +318,24 @@ layer_1/name = "tree"
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(262166, 196608, 6, -65533, 393216, 0, 3, 393216, 1, 65539, 393216, 2, -65532, 458752, 0, 4, 458752, 1, 65540, 458752, 2, -65531, 524288, 0, 5, 524288, 1, 65541, 524288, 2, 65550, 720896, 0, 131086, 720896, 1, 524317, 720896, 0, 589853, 720896, 1, 26, 786432, 4, 65562, 786432, 5, 131098, 786432, 6, 27, 851968, 4, 65563, 851968, 5, 131099, 851968, 6, 28, 917504, 4, 65564, 917504, 5, 131100, 917504, 6, 983042, 786432, 4, 1048578, 786432, 5, 1114114, 786432, 6, 983043, 851968, 4, 1048579, 851968, 5, 1114115, 851968, 6, 983044, 917504, 4, 1048580, 917504, 5, 1114116, 917504, 6, 1048584, 786432, 4, 1114120, 786432, 5, 1179656, 786432, 6, 1048585, 851968, 4, 1114121, 851968, 5, 1179657, 851968, 6, 1048586, 917504, 4, 1114122, 917504, 5, 1179658, 917504, 6, 22, 1703936, 1, 65558, 1703936, 2, 23, 1769472, 1, 65559, 1769472, 2)
 
-[node name="Enemy" parent="." unique_id=1797707749 instance=ExtResource("3_sugp2")]
-position = Vector2(15, 114)
-collision_layer = 2
-
 [node name="Node2D" parent="." unique_id=600966129 instance=ExtResource("5_tbgi4")]
 position = Vector2(158, 113)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=544640337]
+
+[node name="Start" type="Button" parent="CanvasLayer" unique_id=922936099]
+offset_left = 433.0
+offset_top = 14.0
+offset_right = 594.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbdty")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8vrlf")
+text = "Start"
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=265355700]
+
+[connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
