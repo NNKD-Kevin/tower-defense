@@ -5,7 +5,11 @@ var range=150
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0:
 		while (position.distance_to(Global.enemies[a].position)>range):
-			a+=1
+			if a<len(Global.enemies)-1:
+				a+=1
+			else:
+				a=0
+				break
 		if a<len(Global.enemies):
 			var direction=(Global.enemies[a].position-position).normalized()
 			rotation=direction.angle()
