@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var max_hp=100
 var hp=max_hp
-var speed=10000
+var speed=100
 var go=0
 func _ready() -> void:
 	position=Mapdata.road_map1[go]

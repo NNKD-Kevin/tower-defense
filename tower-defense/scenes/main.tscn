@@ -10,7 +10,6 @@ texture = ExtResource("1_0wfyh")
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:0/0 = 0
 6:0/0 = 0
 7:0/0 = 0
@@ -181,19 +180,12 @@ texture = ExtResource("2_sugp2")
 3:3/0 = 0
 4:3/0 = 0
 5:3/0 = 0
-5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:3/0 = 0
-6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:3/0 = 0
-7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:3/0 = 0
-8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:3/0 = 0
-9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:3/0 = 0
-10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:3/0 = 0
-11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
@@ -251,7 +243,6 @@ texture = ExtResource("2_sugp2")
 7:8/0 = 0
 8:8/0 = 0
 9:8/0 = 0
-9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:8/0 = 0
 11:8/0 = 0
 0:9/0 = 0
@@ -287,7 +278,6 @@ texture = ExtResource("2_sugp2")
 6:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_1vivr"]
-physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jyhfs")
 sources/1 = SubResource("TileSetAtlasSource_tbgi4")
 
@@ -303,10 +293,6 @@ layer_0/tile_data = PackedInt32Array(393218, 589825, 8, 458754, 589825, 8, 52429
 layer_1/name = "tree"
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(262166, 196608, 6, -65533, 393216, 0, 3, 393216, 1, 65539, 393216, 2, -65532, 458752, 0, 4, 458752, 1, 65540, 458752, 2, -65531, 524288, 0, 5, 524288, 1, 65541, 524288, 2, 65550, 720896, 0, 131086, 720896, 1, 524317, 720896, 0, 589853, 720896, 1, 26, 786432, 4, 65562, 786432, 5, 131098, 786432, 6, 27, 851968, 4, 65563, 851968, 5, 131099, 851968, 6, 28, 917504, 4, 65564, 917504, 5, 131100, 917504, 6, 983042, 786432, 4, 1048578, 786432, 5, 1114114, 786432, 6, 983043, 851968, 4, 1048579, 851968, 5, 1114115, 851968, 6, 983044, 917504, 4, 1048580, 917504, 5, 1114116, 917504, 6, 1048584, 786432, 4, 1114120, 786432, 5, 1179656, 786432, 6, 1048585, 851968, 4, 1114121, 851968, 5, 1179657, 851968, 6, 1048586, 917504, 4, 1114122, 917504, 5, 1179658, 917504, 6, 22, 1703936, 1, 65558, 1703936, 2, 23, 1769472, 1, 65559, 1769472, 2)
-
-[node name="TileMap2" type="TileMap" parent="." unique_id=341495801]
-visible = false
-format = 2
 
 [node name="Enemy" parent="." unique_id=1797707749 instance=ExtResource("3_sugp2")]
 position = Vector2(15, 114)
