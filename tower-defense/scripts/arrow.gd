@@ -9,6 +9,8 @@ func _process(delta: float) -> void:
 				a+=1
 			else:
 				a=0
+				if (position.distance_to(Global.enemies[a].position)>range):
+					queue_free()
 				break
 		if a<len(Global.enemies):
 			var direction=(Global.enemies[a].position-position).normalized()
@@ -21,3 +23,5 @@ func _process(delta: float) -> void:
 					collider.hp-=25
 					collider.animation.play(collider.type+'hurt')
 				queue_free()
+	else:
+		queue_free()
