@@ -1,5 +1,7 @@
 extends Node2D
 @onready var spawn_timer: Timer = $SpawnTimer
+@onready var wave_count: Label = $CanvasLayer/WaveCount
+
 var spawning=false
 var enemy=preload('res://scenes/enemy.tscn')
 var index=0
@@ -13,6 +15,8 @@ func spawn_enemy(type:String):
 	e.add_to_group('enemies')
 	e.type=type
 	add_child(e)
+func _process(delta: float) -> void:
+	wave_count.text='Wave '+str(Global.wave)
 	
 
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://2sxwkf6xd4ae" path="res://scripts/game_control.gd" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://dq3mchdqllrmw" path="res://assets/Pixel Plains Free Pack/New Basic Tiles Free.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bwloref71v63r" path="res://scenes/tower.tscn" id="5_tbgi4"]
+[ext_resource type="FontFile" uid="uid://cmpfgwq04rnkk" path="res://assets/Pixelout Personal Use Only.ttf" id="5_tefeu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("1_0wfyh")
@@ -329,11 +330,24 @@ offset_top = 14.0
 offset_right = 594.0
 offset_bottom = 73.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_tefeu")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_1vivr")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qbdty")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8vrlf")
 text = "Start"
+
+[node name="WaveCount" type="Label" parent="CanvasLayer" unique_id=789117033]
+offset_left = 45.0
+offset_top = 25.0
+offset_right = 145.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_tefeu")
+theme_override_font_sizes/font_size = 30
+text = "Wave 0"
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=265355700]
 
