@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cw80qamwe3lvp" path="res://assets/towers/Tower 01.png" id="1_2x682"]
 [ext_resource type="Script" uid="uid://brm73vxw8kd0y" path="res://scripts/tower.gd" id="1_ay4al"]
+[ext_resource type="Texture2D" uid="uid://1yqmsdfks4wl" path="res://assets/towers/Tower 02.png" id="3_jfguu"]
 [ext_resource type="Texture2D" uid="uid://vcd8f5msjo5s" path="res://assets/towers/Tower_01_weapons/Tower 01 - Level 01 - Weapon.png" id="3_ktxwe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ay4al"]
@@ -15,6 +16,18 @@ region = Rect2(64, 0, 64, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrbg1"]
 atlas = ExtResource("1_2x682")
 region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olwqo"]
+atlas = ExtResource("3_jfguu")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w3wq"]
+atlas = ExtResource("3_jfguu")
+region = Rect2(64, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4j06"]
+atlas = ExtResource("3_jfguu")
+region = Rect2(128, 0, 64, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
 animations = [{
@@ -42,17 +55,26 @@ animations = [{
 "name": &"1_3",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olwqo")
+}],
 "loop": 1,
 "name": &"2_1",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w3wq")
+}],
 "loop": 1,
 "name": &"2_2",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4j06")
+}],
 "loop": 1,
 "name": &"2_3",
 "speed": 5.0
@@ -87,6 +109,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jfguu")
+}],
+"loop": 0,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfguu")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_85u2j")
@@ -103,8 +133,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p8022")
 }],
+"loop": 0,
+"name": &"1fire",
+"speed": 5.0
+}, {
+"frames": [],
 "loop": 1,
-"name": &"default",
+"name": &"2",
 "speed": 5.0
 }]
 
@@ -112,14 +147,15 @@ animations = [{
 script = ExtResource("1_ay4al")
 
 [node name="Base" type="AnimatedSprite2D" parent="." unique_id=1773876083]
-position = Vector2(-1, 8)
+position = Vector2(0, 27)
 sprite_frames = SubResource("SpriteFrames_1vivr")
-animation = &"1_1"
+animation = &"1_2"
 
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_23jat")
+animation = &"1"
 
 [node name="Node" type="Node" parent="." unique_id=1108158349]
 

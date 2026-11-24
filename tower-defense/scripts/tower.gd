@@ -2,6 +2,7 @@ extends Node2D
 @onready var base: AnimatedSprite2D = $Base
 @onready var weapon: AnimatedSprite2D = $Weapon
 @onready var cooldown: Timer = $Node/cooldown
+
 var type='1'
 var arrow=preload("res://scenes/arrow.tscn")
 var range=150
@@ -29,8 +30,13 @@ func _process(delta: float) -> void:
 				var direction=(e.position-position).normalized()
 				weapon.rotation=direction.angle()+TAU/4
 				if cooldown_finished:
-					fire()
+					weapon.play(type+'fire')
 					cooldown_finished=false
 					cooldown.wait_time=cooldown_time
 					cooldown.start()
 				break
+
+func _on_animation_finished() -> void:
+	if weapon.animation==(type+'fire'):
+		fire()
+		weapon.play(type)
