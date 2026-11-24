@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ueb3qw3leica"]
 
 [ext_resource type="Texture2D" uid="uid://kdd0s78fi5ul" path="res://assets/Pixel Plains Free Pack/Trees and bushes.png" id="1_0wfyh"]
-[ext_resource type="Script" uid="uid://2sxwkf6xd4ae" path="res://scenes/game_control.gd" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://2sxwkf6xd4ae" path="res://scripts/game_control.gd" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://dq3mchdqllrmw" path="res://assets/Pixel Plains Free Pack/New Basic Tiles Free.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://gwmqc4666t4j" path="res://scenes/enemy.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bwloref71v63r" path="res://scenes/tower.tscn" id="5_tbgi4"]

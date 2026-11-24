@@ -5,4 +5,8 @@ func _input(event: InputEvent) -> void:
 		spawn_enemy()
 func spawn_enemy():
 	var e=enemy.instantiate()
-	get_parent().add_child(e)
+	e.add_collision_exception_with(self)
+	e.add_collision_exception_with(e)
+	e.add_to_group('enemies')
+	add_child(e)
+	
