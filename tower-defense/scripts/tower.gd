@@ -10,23 +10,32 @@ var lightning=preload("res://scenes/lightning.tscn")
 var range=150
 var cooldown_finished=true
 var cooldown_time=1
+var bullet=null
+var menu_on=false
+var mouse_on=true
+var dragging=false
 func _ready():
 	cooldown.start()
 	weapon.play(type+'_'+str(level))
 func fire():
 	match type:
 		"1":
-			var bullet=arrow.instantiate()
-			bullet.range=range
-			get_parent().add_child(bullet)
-			bullet.global_position = global_position
+			bullet=arrow.instantiate()
+			
 		"2":
-			var bullet=lightning.instantiate()
-			bullet.range=range
-			get_parent().add_child(bullet)
-			bullet.global_position = global_position
+			bullet=lightning.instantiate()
+	bullet.range=range
+	bullet.add_collision_exception_with(self)
+	get_parent().add_child(bullet)
+	bullet.global_position = global_position
+	
+func _input(event: InputEvent) -> void:
+	if mouse_on and Input.is_action_just_pressed("drag"):
+		menu_on=true	
+
 func _draw() -> void:
-	draw_circle(Vector2.ZERO,range,Color.WHITE,false,3)
+	if menu_on or dragging:
+		draw_circle(Vector2.ZERO,range,Color.WHITE,false,3)
 
 func _on_cooldown_timeout() -> void:
 	cooldown_finished=true
@@ -51,3 +60,11 @@ func _on_weapon_animation_finished() -> void:
 	if weapon.animation==(type+'_'+str(level)+'fire'):
 		fire()
 		weapon.play(type+'_'+str(level))
+
+
+func _on_mouse_entered() -> void:
+	mouse_on=true
+
+
+func _on_mouse_exited() -> void:
+	mouse_on=false
