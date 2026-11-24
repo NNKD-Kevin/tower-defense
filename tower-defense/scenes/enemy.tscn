@@ -151,7 +151,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lioqc")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"blooddeath",
 "speed": 5.0
 }, {
@@ -168,7 +168,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ekh6n")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"bloodhurt",
 "speed": 5.0
 }, {
@@ -214,7 +214,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2mchx")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"goblindeath",
 "speed": 5.0
 }, {
@@ -231,7 +231,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j0cyh")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"goblinhurt",
 "speed": 5.0
 }, {
@@ -269,7 +269,15 @@ animations = [{
 size = Vector2(24, 34)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
-bg_color = Color(0.9999998, 0.034839347, 0.19836423, 1)
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrbg1"]
+bg_color = Color(0.99607843, 0, 0, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -282,9 +290,8 @@ script = ExtResource("1_md0e3")
 position = Vector2(-5, 0)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8tegq")
-animation = &"bloodhurt"
+animation = &"blooddeath"
 autoplay = "goblinwalk"
-frame_progress = 0.54763687
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658497212]
 position = Vector2(-1, 0)
@@ -296,6 +303,7 @@ offset_top = -45.0
 offset_right = 29.0
 offset_bottom = -37.0
 theme_override_styles/background = SubResource("StyleBoxFlat_1vivr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qrbg1")
 show_percentage = false
 
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]

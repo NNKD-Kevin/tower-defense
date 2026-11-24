@@ -14,5 +14,6 @@ func _process(delta: float) -> void:
 			if collision:
 				var collider=collision.get_collider()
 				if collider is Enemy:
-					collider.hp-=10
+					collider.hp-=25
+					collider.animation.play(collider.type+'hurt')
 				queue_free()

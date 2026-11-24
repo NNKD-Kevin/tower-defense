@@ -11,6 +11,7 @@ var go=0
 var damage=10
 
 func _ready() -> void:
+	animation.animation_finished.connect(_on_animation_finished)
 	var stats=EnemyData.STATS[type]
 	position=Mapdata.road_map1[go]
 	go+=1
@@ -23,6 +24,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	health_bar.value=hp
+	if hp<=0:
+		Global.enemies.erase(self)
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	if velocity.x>0:
@@ -40,5 +44,8 @@ func _physics_process(delta: float) -> void:
 			go+=1
 
 
-func _on_animation_animation_finished() -> void:
-	animation.play(type+'walk')
+
+
+func _on_animation_finished() -> void:
+	if animation.animation!=type+'walk':
+		animation.play(type+'walk')
