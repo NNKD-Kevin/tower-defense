@@ -4,12 +4,17 @@ extends Node2D
 @onready var coin_count: Label = $CanvasLayer/CoinCount/Label
 @onready var panel: Panel = $CanvasLayer/Panel
 @onready var map_1: Node2D = $Map1
+@onready var green_overlay: ColorRect = $GreenOverlay
+@onready var red_overlay: ColorRect = $RedOverlay
 
 var shop_on=false
 var spawning=false
 var enemy=preload('res://scenes/enemy.tscn')
 var index=0
 var to_spawn=[]
+func _ready() -> void:
+	green_overlay.visible=false
+	red_overlay.visible=false
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("spawn"):
@@ -24,6 +29,9 @@ func _process(delta: float) -> void:
 	wave_count.text='Wave '+str(Global.wave)
 	coin_count.text=':'+str(Global.coins)
 	panel.visible=shop_on
+	green_overlay.visible=Global.build_valid and Global.building_mode
+	red_overlay.visible= not Global.build_valid and Global.building_mode
+
 	
 	
 
@@ -60,8 +68,11 @@ func buy_tower(type):
 	e.add_to_group('towers')
 	e.type=type
 	e.road=map_1
+	e.add_collision_exception_with(e)	
 	add_child(e)
 	shop_on= not shop_on
+	Global.building_mode=true
+	
 func _on_tower_1_pressed() -> void:
 	buy_tower('1')
 	

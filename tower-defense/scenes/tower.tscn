@@ -1513,6 +1513,8 @@ animations = [{
 size = Vector2(66, 127.25)
 
 [node name="Node2D" type="CharacterBody2D" unique_id=1327188346]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_ay4al")
 
 [node name="Base" type="AnimatedSprite2D" parent="." unique_id=1773876083]
@@ -1523,7 +1525,7 @@ animation = &"1_1"
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"8_2fire"
+animation = &"7_2fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
 position = Vector2(0, 25.625)
