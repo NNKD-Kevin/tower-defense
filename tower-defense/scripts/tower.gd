@@ -21,6 +21,7 @@ func _ready():
 	weapon.play(type+'_'+str(level))
 	if road:
 		exclusion = road.get_node('TowerExclusion') as TileMap
+	base.play(type+'_1')
 func fire():
 	match type:
 		"1":
