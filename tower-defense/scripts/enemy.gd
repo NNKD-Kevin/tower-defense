@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name Enemy
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var animation: AnimatedSprite2D = $animation
+@onready var timer: Timer = $Timer
+
 
 var type='goblin'
 var max_hp=100
@@ -10,6 +12,7 @@ var speed=100
 var go=0
 var damage=10
 var moving=true
+
 
 func _ready() -> void:
 	animation.animation_finished.connect(_on_animation_finished)
@@ -26,8 +29,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	health_bar.value=hp
 	if hp<=0:
+		Global.enemies.erase(self)
 		moving=false
 		animation.play(type+'death')
+	elif not moving:
+		timer.start()
+		
 
 func _physics_process(delta: float) -> void:
 	if velocity.x>0:
@@ -48,10 +55,15 @@ func _physics_process(delta: float) -> void:
 
 
 
+
 func _on_animation_finished() -> void:
 	if animation.animation==type+'death':
-		Global.enemies.erase(self)
+		
 		queue_free()
 		return
 	if animation.animation!=type+'walk':
 		animation.play(type+'walk')
+
+
+func _on_timer_timeout() -> void:
+	moving=true

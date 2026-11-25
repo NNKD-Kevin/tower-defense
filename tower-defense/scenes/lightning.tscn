@@ -46,6 +46,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1bxd"]
+size = Vector2(20, 21)
+
 [node name="Lightning" type="CharacterBody2D" unique_id=72568304]
 script = ExtResource("1_k2dum")
 
@@ -54,3 +57,5 @@ sprite_frames = SubResource("SpriteFrames_n7g4i")
 frame_progress = 0.8556327
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=167617647]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_v1bxd")
