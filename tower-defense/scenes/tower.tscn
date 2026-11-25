@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://dh5y8xasxv18n" path="res://assets/towers/Tower_07_weapons/Tower 07 - Level 02 - Weapon.png" id="20_cjdug"]
 [ext_resource type="Texture2D" uid="uid://tdp1clx1obh2" path="res://assets/towers/Tower_08_weapons/Tower 08 - Level 01 - Weapon.png" id="21_v1bxd"]
 [ext_resource type="Texture2D" uid="uid://cisxfefof0wah" path="res://assets/towers/Tower_08_weapons/Tower 08 - Level 02 - Weapon.png" id="22_cjdug"]
+[ext_resource type="FontFile" uid="uid://cmpfgwq04rnkk" path="res://assets/Pixelout Personal Use Only.ttf" id="23_cjdug"]
+[ext_resource type="Texture2D" uid="uid://diotq4i3rmyel" path="res://assets/coin.png" id="24_dyfdg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ay4al"]
 atlas = ExtResource("1_2x682")
@@ -1512,31 +1514,177 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
 size = Vector2(78, 147)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1bxd"]
+bg_color = Color(0.7387652, 0.57096833, 0.23037094, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
+bg_color = Color(0.023357373, 0.6929189, 0.64543337, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkv2x"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
+atlas = ExtResource("24_dyfdg")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8vrlf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tipki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkv2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbj1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muem4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3eg")
+}],
+"loop": 1,
+"name": &"default_2",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="CharacterBody2D" unique_id=1327188346]
 collision_layer = 4
 collision_mask = 4
+input_pickable = true
 script = ExtResource("1_ay4al")
 
 [node name="Base" type="AnimatedSprite2D" parent="." unique_id=1773876083]
 position = Vector2(0, 26)
 sprite_frames = SubResource("SpriteFrames_1vivr")
-animation = &"2_3"
+animation = &"1_1"
 
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"1_1fire"
+animation = &"1_1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
 position = Vector2(-1, 27.5)
 shape = SubResource("RectangleShape2D_1vivr")
 
-[node name="Node" type="Node" parent="." unique_id=1108158349]
+[node name="Timer" type="Node" parent="." unique_id=1108158349]
 
-[node name="cooldown" type="Timer" parent="Node" unique_id=1100249567]
+[node name="cooldown" type="Timer" parent="Timer" unique_id=1100249567]
 one_shot = true
+
+[node name="Menu" type="CanvasLayer" parent="." unique_id=749967554]
+
+[node name="Panel" type="Panel" parent="Menu" unique_id=710881622]
+offset_left = 33.0
+offset_top = -66.0
+offset_right = 225.0
+offset_bottom = 26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1bxd")
+
+[node name="Upgrade" type="Button" parent="Menu/Panel" unique_id=1311868392]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 65.0
+offset_right = 66.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_cjdug")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1vivr")
+text = " 100"
+
+[node name="Priority" type="Button" parent="Menu/Panel" unique_id=1737410390]
+layout_mode = 0
+offset_left = -33.0
+offset_top = 66.0
+offset_right = -25.0
+offset_bottom = 74.0
+
+[node name="CoinIcon" type="AnimatedSprite2D" parent="Menu/Panel" unique_id=1172043592]
+position = Vector2(17, 76)
+scale = Vector2(1.1875, 1.1875)
+sprite_frames = SubResource("SpriteFrames_8vrlf")
+animation = &"default_2"
+autoplay = "default_2"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="animation_finished" from="Weapon" to="." method="_on_weapon_animation_finished"]
-[connection signal="timeout" from="Node/cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Timer/cooldown" to="." method="_on_cooldown_timeout"]

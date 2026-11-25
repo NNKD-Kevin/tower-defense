@@ -3,6 +3,10 @@ class_name Tower
 @onready var base: AnimatedSprite2D = $Base
 @onready var weapon: AnimatedSprite2D = $Weapon
 @onready var cooldown: Timer = $Node/cooldown
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var menu: Panel = $Menu/Panel
+
+
 
 const top=10
 const bottom=85
@@ -41,18 +45,24 @@ func fire():
 	bullet.global_position = global_position
 	
 func _input(event: InputEvent) -> void:
-	if mouse_on and Input.is_action_just_pressed("drag"):
-		if dragging and Global.build_valid: 
-			dragging=false
-		elif dragging and not Global.build_valid:
-			queue_free()
-		Global.building_mode=false
+	if Input.is_action_just_pressed("drag"):
+		if dragging:
+			if Global.build_valid: 
+				dragging=false
+			else:
+				queue_free()
+			Global.building_mode=false
+		else:
+			menu_on=mouse_on
 		queue_redraw()
 
 func _draw() -> void:
 	if dragging:
 		draw_circle(Vector2.ZERO,range,Color.WHITE,false,3)
-
+	if mouse_on and not dragging:
+		var size:Vector2=collision_shape_2d.shape.size
+		var rect=Rect2(collision_shape_2d.position-size/2.0,size)
+		draw_rect(rect,Color.WHITE,false,2)
 
 func check_valid_build():
 	if exclusion == null:
@@ -73,9 +83,18 @@ func area_free(center):
 			if exclusion.get_cell_source_id(0, Vector2i(x, y)) != -1:
 				return false
 	return true
-
+func is_mouse_over() -> bool:
+	var size: Vector2 = collision_shape_2d.shape.size
+	var rect = Rect2(collision_shape_2d.position - size / 2.0, size)
+	return rect.has_point(to_local(get_global_mouse_position()))
 
 func _process(delta: float) -> void:
+	var over = is_mouse_over()
+	if over != mouse_on:
+		mouse_on = over
+		queue_redraw()
+	menu.visible=menu_on
+	menu.global_position=global_position+Vector2(30,-100)
 	base.global_position=global_position+Vector2(0,-(3-level)*9+26)
 	if dragging:
 		check_valid_build()
@@ -108,11 +127,3 @@ func _on_weapon_animation_finished() -> void:
 	if weapon.animation==(type+'_'+str(level)+'fire'):
 		fire()
 		weapon.play(type+'_'+str(level))
-
-
-func _on_mouse_entered() -> void:
-	mouse_on=true
-
-
-func _on_mouse_exited() -> void:
-	mouse_on=false
