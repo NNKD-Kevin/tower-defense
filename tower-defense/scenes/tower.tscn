@@ -908,7 +908,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"1_1fire",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1525,7 +1525,7 @@ animation = &"2_3"
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"7_2fire"
+animation = &"1_1fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
 position = Vector2(-1, 27.5)

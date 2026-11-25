@@ -6,6 +6,7 @@ extends Node2D
 @onready var map_1: Node2D = $Map1
 @onready var green_overlay: ColorRect = $GreenOverlay
 @onready var red_overlay: ColorRect = $RedOverlay
+@onready var portal: AnimatedSprite2D = $Portal
 
 var shop_on=false
 var spawning=false

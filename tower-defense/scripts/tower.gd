@@ -24,7 +24,6 @@ var mouse_on=true
 var dragging=true
 var overlapping_tower=false
 func _ready():
-	cooldown.start()
 	weapon.play(type+'_'+str(level))
 	if road:
 		exclusion = road.get_node('TowerExclusion') as TileMap
@@ -54,8 +53,6 @@ func _draw() -> void:
 	if dragging:
 		draw_circle(Vector2.ZERO,range,Color.WHITE,false,3)
 
-func _on_cooldown_timeout() -> void:
-	cooldown_finished=true
 
 func check_valid_build():
 	if exclusion == null:
@@ -88,11 +85,8 @@ func _process(delta: float) -> void:
 				if position.distance_to(e.position)<=range:
 					var direction=(e.position-position).normalized()
 					if type=='1' or type=='7' or type=='6': weapon.rotation=direction.angle()-TAU*3/4
-					if cooldown_finished:
+					if weapon.animation!=type+'_'+str(level)+'fire':
 						weapon.play(type+'_'+str(level)+'fire')
-						cooldown_finished=false
-						cooldown.wait_time=cooldown_time
-						cooldown.start()
 					break
 func _physics_process(delta: float) -> void:
 	if not dragging:

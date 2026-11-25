@@ -17,7 +17,7 @@ var moving=true
 func _ready() -> void:
 	animation.animation_finished.connect(_on_animation_finished)
 	var stats=EnemyData.STATS[type]
-	position=Mapdata.road_map1[go]
+	position=Mapdata.road_map1[go]+Vector2(30,0)
 	go+=1
 	max_hp=stats.max_hp
 	hp=max_hp
