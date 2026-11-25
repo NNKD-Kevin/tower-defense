@@ -34,6 +34,7 @@ func _input(event: InputEvent) -> void:
 		if dragging: 
 			dragging=false
 		else: menu_on=true
+		queue_redraw()
 
 func _draw() -> void:
 	if menu_on or dragging:
