@@ -438,6 +438,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_qrbg1")
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="." unique_id=349728167]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]

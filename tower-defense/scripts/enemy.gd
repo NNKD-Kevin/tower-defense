@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		Global.enemies.erase(self)
 		moving=false
 		animation.play(type+'death')
-	elif not moving:
+	elif not moving and timer.is_stopped():
 		timer.start()
 		
 
@@ -46,7 +46,14 @@ func _physics_process(delta: float) -> void:
 	velocity= direction*speed
 	if moving:
 		var collision=move_and_collide(velocity*delta)
-	
+	for i in Global.enemies:
+		if i!=self and position.distance_to(i.position)<=(velocity*delta).length():
+			var index1=Global.enemies.find(i)
+			var index2=Global.enemies.find(self)
+			Global.enemies[index1]=self
+			Global.enemies[index2]=i
+			print('duy gay')
+			break
 	if position.distance_to(Mapdata.road_map1[go])<velocity.length()*delta:
 		position=Mapdata.road_map1[go]
 		if go<len(Mapdata.road_map1)-1:
