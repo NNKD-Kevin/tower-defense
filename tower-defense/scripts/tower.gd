@@ -21,7 +21,6 @@ func fire():
 	match type:
 		"1":
 			bullet=arrow.instantiate()
-			
 		"2":
 			bullet=lightning.instantiate()
 	bullet.range=range
@@ -52,7 +51,7 @@ func _process(delta: float) -> void:
 			for e in Global.enemies:
 				if position.distance_to(e.position)<=range:
 					var direction=(e.position-position).normalized()
-					if type=='1' or type=='7': weapon.rotation=direction.angle()-TAU*3/4
+					if type=='1' or type=='7' or type=='6': weapon.rotation=direction.angle()-TAU*3/4
 					if cooldown_finished:
 						weapon.play(type+'_'+str(level)+'fire')
 						cooldown_finished=false
