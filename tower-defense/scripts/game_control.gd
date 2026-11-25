@@ -48,3 +48,58 @@ func _on_spawn_timer_timeout() -> void:
 
 func _on_shop_pressed() -> void:
 	shop_on= not shop_on
+	
+	
+	
+#Buy tower
+var tower=preload('res://scenes/tower.tscn')
+
+
+func _on_tower_1_pressed() -> void:
+	var e=tower.instantiate()
+	e.add_to_group('towers')
+	e.type='1'
+	add_child(e)
+	shop_on= not shop_on
+	
+func _on_tower_2_pressed() -> void:
+	var e=tower.instantiate()
+	e.add_to_group('towers')
+	e.type='2'
+	add_child(e)
+	shop_on= not shop_on
+
+func _on_tower_3_pressed() -> void:
+	var e=tower.instantiate()
+	e.add_to_group('towers')
+	e.type='3'
+	add_child(e)
+	shop_on= not shop_on
+	
+func _on_tower_5_pressed() -> void:
+	var e=tower.instantiate()
+	e.add_to_group('towers')
+	e.type='5'
+	add_child(e)
+	shop_on= not shop_on
+
+func _on_tower_6_pressed() -> void:
+	var e=tower.instantiate()
+	e.add_to_group('towers')
+	e.type='6'
+	add_child(e)
+	shop_on= not shop_on
+
+func _on_tower_7_pressed() -> void:
+	var e=tower.instantiate()
+	e.add_to_group('towers')
+	e.type='7'
+	add_child(e)
+	shop_on= not shop_on
+
+func _on_tower_8_pressed() -> void:
+	var e=tower.instantiate()
+	e.add_to_group('towers')
+	e.type='8'
+	add_child(e)
+	shop_on= not shop_on

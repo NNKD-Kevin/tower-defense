@@ -13,7 +13,7 @@ var cooldown_time=1
 var bullet=null
 var menu_on=false
 var mouse_on=true
-var dragging=false
+var dragging=true
 func _ready():
 	cooldown.start()
 	weapon.play(type+'_'+str(level))
@@ -31,7 +31,9 @@ func fire():
 	
 func _input(event: InputEvent) -> void:
 	if mouse_on and Input.is_action_just_pressed("drag"):
-		menu_on=true	
+		if dragging: 
+			dragging=false
+		else: menu_on=true
 
 func _draw() -> void:
 	if menu_on or dragging:
@@ -41,17 +43,20 @@ func _on_cooldown_timeout() -> void:
 	cooldown_finished=true
 
 func _process(delta: float) -> void:
-	if len(Global.enemies)>0:
-		for e in Global.enemies:
-			if position.distance_to(e.position)<=range:
-				var direction=(e.position-position).normalized()
-				if type=='1' or type=='7': weapon.rotation=direction.angle()-TAU*3/4
-				if cooldown_finished:
-					weapon.play(type+'_'+str(level)+'fire')
-					cooldown_finished=false
-					cooldown.wait_time=cooldown_time
-					cooldown.start()
-				break
+	if dragging:
+		global_position=get_global_mouse_position()
+	else:
+		if len(Global.enemies)>0:
+			for e in Global.enemies:
+				if position.distance_to(e.position)<=range:
+					var direction=(e.position-position).normalized()
+					if type=='1' or type=='7': weapon.rotation=direction.angle()-TAU*3/4
+					if cooldown_finished:
+						weapon.play(type+'_'+str(level)+'fire')
+						cooldown_finished=false
+						cooldown.wait_time=cooldown_time
+						cooldown.start()
+					break
 
 
 

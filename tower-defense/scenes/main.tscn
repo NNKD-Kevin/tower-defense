@@ -328,11 +328,23 @@ region = Rect2(0, 0, 62, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sxyj"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muem4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dp3eg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ld40"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2pp6"]
 atlas = ExtResource("7_ya4ey")
 region = Rect2(0, 0, 64.54001, 192)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5tgd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqmmt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yc10j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jscy8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7cuq"]
 atlas = ExtResource("8_eb6dy")
@@ -340,11 +352,23 @@ region = Rect2(0, 0, 65.74997, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5u3a"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pm3ni"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6deb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_og1vs"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5tgd"]
 atlas = ExtResource("9_trceg")
 region = Rect2(0, 0, 64.54001, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vrlf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2wyq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxglm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yq6so"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vivr"]
 atlas = ExtResource("10_trceg")
@@ -352,11 +376,23 @@ region = Rect2(0, 0, 64.80002, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5gy4"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv21b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tel4y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkpxi"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vrlf"]
 atlas = ExtResource("11_a8y0u")
 region = Rect2(0, 0, 64.80002, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qbdty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5q0nq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgi5k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8jky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5gy4"]
 atlas = ExtResource("12_jkv2x")
@@ -522,6 +558,9 @@ offset_top = -14.0
 offset_right = 209.0
 offset_bottom = 186.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0sxyj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_muem4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dp3eg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ld40")
 icon = SubResource("AtlasTexture_d2pp6")
 
 [node name="tower3" type="Button" parent="CanvasLayer/Panel" unique_id=1688739406]
@@ -531,6 +570,9 @@ offset_top = 48.0
 offset_right = 342.0
 offset_bottom = 184.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_o5tgd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gqmmt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yc10j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jscy8")
 icon = SubResource("AtlasTexture_u7cuq")
 
 [node name="tower5" type="Button" parent="CanvasLayer/Panel" unique_id=952758299]
@@ -540,6 +582,9 @@ offset_top = 57.0
 offset_right = 448.0
 offset_bottom = 185.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_s5u3a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pm3ni")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y6deb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_og1vs")
 icon = SubResource("AtlasTexture_o5tgd")
 
 [node name="tower6" type="Button" parent="CanvasLayer/Panel" unique_id=883083611]
@@ -549,6 +594,9 @@ offset_top = 59.0
 offset_right = 561.0
 offset_bottom = 187.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8vrlf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2wyq8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vxglm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yq6so")
 icon = SubResource("AtlasTexture_1vivr")
 
 [node name="tower7" type="Button" parent="CanvasLayer/Panel" unique_id=868990379]
@@ -558,15 +606,21 @@ offset_top = 57.0
 offset_right = 675.0
 offset_bottom = 185.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_v5gy4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fv21b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tel4y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qkpxi")
 icon = SubResource("AtlasTexture_8vrlf")
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=454157653]
+[node name="tower8" type="Button" parent="CanvasLayer/Panel" unique_id=454157653]
 layout_mode = 0
 offset_left = 721.0
 offset_top = -10.0
 offset_right = 785.0
 offset_bottom = 182.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qbdty")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5q0nq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dgi5k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8jky")
 icon = SubResource("AtlasTexture_v5gy4")
 
 [node name="Shop" type="Button" parent="CanvasLayer" unique_id=1427675814]
@@ -611,5 +665,12 @@ frame_progress = 0.8552528
 [node name="SpawnTimer" type="Timer" parent="." unique_id=265355700]
 
 [connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/tower1" to="." method="_on_tower_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/tower2" to="." method="_on_tower_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/tower3" to="." method="_on_tower_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/tower5" to="." method="_on_tower_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/tower6" to="." method="_on_tower_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/tower7" to="." method="_on_tower_7_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/tower8" to="." method="_on_tower_8_pressed"]
 [connection signal="pressed" from="CanvasLayer/Shop" to="." method="_on_shop_pressed"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
