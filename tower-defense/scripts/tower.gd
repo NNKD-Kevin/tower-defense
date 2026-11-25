@@ -2,6 +2,11 @@ extends Node2D
 @onready var base: AnimatedSprite2D = $Base
 @onready var weapon: AnimatedSprite2D = $Weapon
 @onready var cooldown: Timer = $Node/cooldown
+
+const top=10
+const bottom=85
+const left=20
+const right=20
 var road:Node2D
 var exclusion:TileMap
 var type='1'
@@ -53,10 +58,19 @@ func check_valid_build():
 		return
 
 	var mouse_pos = get_global_mouse_position()
+	
 	var cell = exclusion.local_to_map(exclusion.to_local(mouse_pos))
 	global_position=exclusion.to_global(exclusion.map_to_local(cell))
-	Global.build_valid=exclusion.get_cell_source_id(0,cell)==-1
+	Global.build_valid = area_free(global_position)
 
+func area_free(center):
+	var top_left=exclusion.local_to_map(exclusion.to_local(center + Vector2(left, top)))
+	var bottom_right=exclusion.local_to_map(exclusion.to_local(center + Vector2(right, bottom)))
+	for x in range(top_left.x,bottom_right.x+1):
+		for y in range(top_left.y,bottom_right.y+1):
+			if exclusion.get_cell_source_id(0, Vector2i(x, y)) != -1:
+				return false
+	return true
 func _process(delta: float) -> void:
 	base.global_position=global_position+Vector2(0,-(3-level)*9+26)
 	if dragging:
