@@ -2,7 +2,8 @@ extends Node2D
 @onready var base: AnimatedSprite2D = $Base
 @onready var weapon: AnimatedSprite2D = $Weapon
 @onready var cooldown: Timer = $Node/cooldown
-
+var road:Node2D
+var exclusion:TileMap
 var type='1'
 var level=1
 var arrow=preload("res://scenes/arrow.tscn")
@@ -14,9 +15,12 @@ var bullet=null
 var menu_on=false
 var mouse_on=true
 var dragging=true
+
 func _ready():
 	cooldown.start()
 	weapon.play(type+'_'+str(level))
+	if road:
+		exclusion = road.get_node('TowerExclusion') as TileMap
 func fire():
 	match type:
 		"1":
@@ -30,22 +34,34 @@ func fire():
 	
 func _input(event: InputEvent) -> void:
 	if mouse_on and Input.is_action_just_pressed("drag"):
-		if dragging: 
+		if dragging and Global.build_valid: 
 			dragging=false
-		else: menu_on=true
+		elif not dragging: 
+			menu_on=true
 		queue_redraw()
 
 func _draw() -> void:
-	if menu_on or dragging:
+	if dragging:
 		draw_circle(Vector2.ZERO,range,Color.WHITE,false,3)
 
 func _on_cooldown_timeout() -> void:
 	cooldown_finished=true
 
+func check_valid_build():
+	if exclusion == null:
+		Global.build_valid = false
+		return
+
+	var mouse_pos = get_global_mouse_position()
+	var cell = exclusion.local_to_map(exclusion.to_local(mouse_pos))
+	global_position=exclusion.to_global(exclusion.map_to_local(cell))
+	Global.build_valid=exclusion.get_cell_source_id(0,cell)==-1
+
 func _process(delta: float) -> void:
 	base.global_position=global_position+Vector2(0,-(3-level)*9+26)
 	if dragging:
 		global_position=get_global_mouse_position()
+		check_valid_build()
 	else:
 		if len(Global.enemies)>0:
 			for e in Global.enemies:

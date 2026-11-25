@@ -3,6 +3,7 @@ extends Node2D
 @onready var wave_count: Label = $CanvasLayer/WaveCount
 @onready var coin_count: Label = $CanvasLayer/CoinCount/Label
 @onready var panel: Panel = $CanvasLayer/Panel
+@onready var map_1: Node2D = $Map1
 
 var shop_on=false
 var spawning=false
@@ -54,52 +55,30 @@ func _on_shop_pressed() -> void:
 #Buy tower
 var tower=preload('res://scenes/tower.tscn')
 
-
-func _on_tower_1_pressed() -> void:
+func buy_tower(type):
 	var e=tower.instantiate()
 	e.add_to_group('towers')
-	e.type='1'
+	e.type=type
+	e.road=map_1
 	add_child(e)
 	shop_on= not shop_on
+func _on_tower_1_pressed() -> void:
+	buy_tower('1')
 	
 func _on_tower_2_pressed() -> void:
-	var e=tower.instantiate()
-	e.add_to_group('towers')
-	e.type='2'
-	add_child(e)
-	shop_on= not shop_on
+	buy_tower('2')
 
 func _on_tower_3_pressed() -> void:
-	var e=tower.instantiate()
-	e.add_to_group('towers')
-	e.type='3'
-	add_child(e)
-	shop_on= not shop_on
+	buy_tower('3')
 	
 func _on_tower_5_pressed() -> void:
-	var e=tower.instantiate()
-	e.add_to_group('towers')
-	e.type='5'
-	add_child(e)
-	shop_on= not shop_on
+	buy_tower('5')
 
 func _on_tower_6_pressed() -> void:
-	var e=tower.instantiate()
-	e.add_to_group('towers')
-	e.type='6'
-	add_child(e)
-	shop_on= not shop_on
+	buy_tower('6')
 
 func _on_tower_7_pressed() -> void:
-	var e=tower.instantiate()
-	e.add_to_group('towers')
-	e.type='7'
-	add_child(e)
-	shop_on= not shop_on
+	buy_tower('7')
 
 func _on_tower_8_pressed() -> void:
-	var e=tower.instantiate()
-	e.add_to_group('towers')
-	e.type='8'
-	add_child(e)
-	shop_on= not shop_on
+	buy_tower('8')
