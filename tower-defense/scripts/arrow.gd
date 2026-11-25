@@ -7,6 +7,7 @@ var range=150
 var level=1
 func _ready() -> void:
 	animated_sprite_2d.play(str(level))
+	visible=false
 
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0:
@@ -22,6 +23,7 @@ func _process(delta: float) -> void:
 			var direction=(Global.enemies[a].position-position).normalized()
 			rotation=direction.angle()
 			velocity= direction*speed
+			visible=true
 			var collision=move_and_collide(velocity*delta)
 			if collision:
 				var collider=collision.get_collider()
