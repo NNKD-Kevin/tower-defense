@@ -414,6 +414,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1797707749]
+collision_mask = 2
 script = ExtResource("1_md0e3")
 
 [node name="animation" type="AnimatedSprite2D" parent="." unique_id=442325771]
