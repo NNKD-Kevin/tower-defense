@@ -937,7 +937,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3e26d")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"1_2fire",
 "speed": 5.0
 }, {
@@ -998,7 +998,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oo2v6")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"2_1fire",
 "speed": 5.0
 }, {
@@ -1059,7 +1059,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_efpvh")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"2_2fire",
 "speed": 5.0
 }, {
@@ -1068,7 +1068,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4tbrf")
 }],
 "loop": 1,
-"name": &"3",
+"name": &"3_1",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1090,7 +1090,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qar2p")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"3_1fire",
 "speed": 5.0
 }, {
@@ -1121,7 +1121,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d7k4n")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"3_2fire",
 "speed": 5.0
 }, {
@@ -1203,7 +1203,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_41uty")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"5_1fire",
 "speed": 5.0
 }, {
@@ -1285,7 +1285,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vwfxa")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"5_2fire",
 "speed": 5.0
 }, {
@@ -1319,7 +1319,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_43t3e")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"6_1fire",
 "speed": 5.0
 }, {
@@ -1353,7 +1353,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xsn3w")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"6_2fire",
 "speed": 5.0
 }, {
@@ -1384,7 +1384,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6i047")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"7_1fire",
 "speed": 5.0
 }, {
@@ -1418,7 +1418,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hrq2k")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"7_2fire",
 "speed": 5.0
 }, {
@@ -1461,7 +1461,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x8vp0")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"8_1fire",
 "speed": 5.0
 }, {
@@ -1504,7 +1504,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hmvte")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"8_2fire",
 "speed": 5.0
 }]
