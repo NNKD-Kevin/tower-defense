@@ -26,15 +26,15 @@ region = Rect2(128, 0, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olwqo"]
 atlas = ExtResource("3_jfguu")
-region = Rect2(0, 0, 64, 192)
+region = Rect2(0, 64, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5w3wq"]
 atlas = ExtResource("3_jfguu")
-region = Rect2(64, 0, 64, 192)
+region = Rect2(64, 64, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4j06"]
 atlas = ExtResource("3_jfguu")
-region = Rect2(128, 0, 64, 192)
+region = Rect2(128, 64, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dk8x1"]
 atlas = ExtResource("4_olwqo")
@@ -84,17 +84,17 @@ region = Rect2(64, 0, 64, 128)
 atlas = ExtResource("7_k6fnl")
 region = Rect2(128, 0, 64, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vy2i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtvrq"]
 atlas = ExtResource("8_3hems")
-region = Rect2(0, 0, 64, 192)
+region = Rect2(0, 64, 64, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ch2x2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6gji"]
 atlas = ExtResource("8_3hems")
-region = Rect2(64, 0, 64, 192)
+region = Rect2(64, 64, 64, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wf0v8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc43p"]
 atlas = ExtResource("8_3hems")
-region = Rect2(128, 0, 64, 192)
+region = Rect2(128, 64, 64, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
 animations = [{
@@ -244,7 +244,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1vy2i")
+"texture": SubResource("AtlasTexture_jtvrq")
 }],
 "loop": 1,
 "name": &"8_1",
@@ -252,7 +252,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ch2x2")
+"texture": SubResource("AtlasTexture_t6gji")
 }],
 "loop": 1,
 "name": &"8_2",
@@ -260,7 +260,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wf0v8")
+"texture": SubResource("AtlasTexture_rc43p")
 }],
 "loop": 1,
 "name": &"8_3",
@@ -447,24 +447,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
-size = Vector2(78, 138)
+size = Vector2(66, 127.25)
 
 [node name="Node2D" type="CharacterBody2D" unique_id=1327188346]
 script = ExtResource("1_ay4al")
 
 [node name="Base" type="AnimatedSprite2D" parent="." unique_id=1773876083]
-position = Vector2(1, 6)
+position = Vector2(0, 26)
 sprite_frames = SubResource("SpriteFrames_1vivr")
-animation = &"3_1"
+animation = &"1_1"
 
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"1_1fire"
+animation = &"1_1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
-position = Vector2(3, 22)
+position = Vector2(0, 25.625)
 shape = SubResource("RectangleShape2D_1vivr")
 
 [node name="Node" type="Node" parent="." unique_id=1108158349]

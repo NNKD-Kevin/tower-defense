@@ -44,6 +44,7 @@ func _on_cooldown_timeout() -> void:
 	cooldown_finished=true
 
 func _process(delta: float) -> void:
+	base.global_position=global_position+Vector2(0,-(3-level)*9+26)
 	if dragging:
 		global_position=get_global_mouse_position()
 	else:
