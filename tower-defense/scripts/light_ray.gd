@@ -5,6 +5,7 @@ const speed=1000
 var a=0
 var range=150
 var collider=null
+var teleport=false
 
 func _ready() -> void:
 	animate.animation='default'
@@ -37,8 +38,12 @@ func _process(delta: float) -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if animate.animation=='explode':
-		collider.hp-=150
+	if animate.animation=='explode' and teleport:
+		collider.hp-=25
 		collider.animation.play(collider.type+'hurt')
 		queue_free()
 		return
+	else:
+		collider.reverse=true
+		animate.play('explode')
+		teleport=true

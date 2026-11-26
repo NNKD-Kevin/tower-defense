@@ -13,6 +13,7 @@ var go=0
 var damage=10
 var moving=true
 var distance=0
+var reverse=false
 
 
 
@@ -39,6 +40,13 @@ func _process(delta: float) -> void:
 		
 
 func _physics_process(delta: float) -> void:
+	if reverse:
+		teleport_back(delta)
+	else:
+		normal_go(delta)
+		
+
+func normal_go(delta: float):
 	if velocity.x>0:
 		animation.flip_h=false
 	elif velocity.x<0:
@@ -62,9 +70,31 @@ func _physics_process(delta: float) -> void:
 		if go<len(Mapdata.road_map1)-1:
 			go+=1
 
-
-
-
+func teleport_back(delta:float):
+	go-=1
+	var displace=velocity.length()*100*delta
+	var fake_position=Vector2(position)
+	if distance>displace:
+		distance-=displace
+		while true:
+			if fake_position.distance_to(Mapdata.road_map1[go])<=displace:
+				fake_position=Mapdata.road_map1[go]
+				displace-=fake_position.distance_to(Mapdata.road_map1[go])
+				if go>0:
+					go-=1
+			else:
+				var a=Mapdata.road_map1[go]-fake_position
+				a=a.normalized()*displace
+				fake_position+=a
+				displace=0
+				go+=1
+				
+			if displace==0: break
+	else: 
+		distance=0
+		fake_position=Vector2(30,110)
+	position=fake_position
+	reverse=false
 
 func _on_animation_finished() -> void:
 	if animation.animation==type+'death':
