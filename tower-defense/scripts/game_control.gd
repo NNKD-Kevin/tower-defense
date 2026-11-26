@@ -83,14 +83,15 @@ func _on_shop_pressed() -> void:
 var tower=preload('res://scenes/tower.tscn')
 
 func buy_tower(type):
-	var e=tower.instantiate()
-	e.add_to_group('towers')
-	e.type=type
-	e.road=map_1
-	e.add_collision_exception_with(e)	
-	add_child(e)
-	shop_on= not shop_on
-	Global.building_mode=true
+	if Global.coins>=TowerData.STATS[type]['costs'][0]:
+		var e=tower.instantiate()
+		e.add_to_group('towers')
+		e.type=type
+		e.road=map_1
+		e.add_collision_exception_with(e)	
+		add_child(e)
+		shop_on= not shop_on
+		Global.building_mode=true
 	
 func _on_tower_1_pressed() -> void:
 	buy_tower('1')

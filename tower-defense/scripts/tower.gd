@@ -49,7 +49,7 @@ var priorities=['first','last','strongest','weakest','nearest','furthest']
 var priority_index=0
 var priority='first'
 var stats:Dictionary
-
+var spent=0
 
 func _ready():
 	if road:
@@ -58,12 +58,17 @@ func _ready():
 	title = TowerData.STATS[type].name
 	tower_name.text=title
 	costs= TowerData.STATS[type].costs
+	spent+=costs[0]
 	stats=TowerData.STATS[type].stats
 	damages=stats.damage
 	speeds=stats.speed
 	ranges=stats.range
+	match type:
+		'2':var durations=stats.duration
+		'3':var radiuses=stats.radius
+		'4':var distances=stats.distance
 	update()
-	
+
 func fire():
 	match type:
 		"1":
@@ -79,6 +84,7 @@ func fire():
 		"7":
 			bullet=fire_bomb.instantiate()  
 	bullet.range=range
+	bullet.level=level
 	bullet.add_collision_exception_with(self)
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
@@ -137,6 +143,12 @@ func update():
 	range=ranges[level-1]
 	speed=speeds[level-1]
 	tower_icon.play(str(type)+'_'+str(level))
+	sell_button.text=str(int(spent/2))
+	upgrade_button.text=str(costs[level]) if level<3 else 'MAX'
+	stats_label.text='Level '+ str(level)
+	stats_label.text+='\nDmg: '+str(damage)
+	stats_label.text+='\nspeed: '+str(speed)
+	stats_label.text+='\nrange: '+str(range)
 func _process(delta: float) -> void:
 	
 	var over = is_mouse_over()
@@ -180,12 +192,13 @@ func _on_weapon_animation_finished() -> void:
 
 
 func _on_upgrade_pressed() -> void:
-	pass # Replace with function body.
-
+	if level<3 and Global.coins>=costs[level]:
+		Global.coins-=costs[level]
+		level+=1
 
 func _on_sell_pressed() -> void:
-	pass # Replace with function body.
-
+	Global.coins+=int(0.5*spent)
+	queue_free()
 
 func _on_priority_pressed() -> void:
 	priority_index+=1
