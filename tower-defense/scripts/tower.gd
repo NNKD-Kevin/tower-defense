@@ -28,6 +28,7 @@ var lightning=preload("res://scenes/lightning.tscn")
 var explode_ball=preload("res://scenes/explode_ball.tscn")
 var light_ray=preload("res://scenes/light_ray.tscn")
 var speed_arrow=preload("res://scenes/speedarrow.tscn")
+var fire_bomb=preload("res://scenes/fire.tscn")
 
 var range=150
 var cooldown_finished=true
@@ -61,6 +62,8 @@ func fire():
 			bullet=light_ray.instantiate()
 		"6":
 			bullet=speed_arrow.instantiate()
+		"7":
+			bullet=fire_bomb.instantiate()  
 	bullet.range=range
 	bullet.add_collision_exception_with(self)
 	get_parent().add_child(bullet)
