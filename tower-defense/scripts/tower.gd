@@ -2,22 +2,23 @@ extends CharacterBody2D
 class_name Tower
 @onready var base: AnimatedSprite2D = $Base
 @onready var weapon: AnimatedSprite2D = $Weapon
-@onready var cooldown: Timer = $Node/cooldown
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var menu: Panel = $Menu/Panel
-@onready var upgrade_button: Button = $Menu/Panel/UpgradeButton
-@onready var sell_button: Button = $Menu/Panel/SellButton
-@onready var priority_button: Button = $Menu/Panel/PriorityButton
-@onready var tower_name: Label = $Menu/Panel/TowerName
-@onready var stats: Label = $Menu/Panel/Stats
-@onready var upgrade_stats: Label = $Menu/Panel/UpgradeStats
+
+@onready var menu: Panel = $CanvasLayer/Menu
+@onready var upgrade_button: Button = $CanvasLayer/Menu/UpgradeButton
+@onready var sell_button: Button = $CanvasLayer/Menu/SellButton
+@onready var priority_button: Button = $CanvasLayer/Menu/PriorityButton
+@onready var tower_name: Label = $CanvasLayer/Menu/TowerName
+@onready var stats_label: Label = $CanvasLayer/Menu/Stats
+@onready var upgrade_stats: Label = $CanvasLayer/Menu/UpgradeStats
+@onready var tower_icon: AnimatedSprite2D = $"CanvasLayer/Menu/Tower Icon"
 
 
 const top=10
 const bottom=85
 const left=20
 const right=20
-const speed=2000
+const move_speed=2000
 var road:Node2D
 var exclusion:TileMap
 var type='1'
@@ -29,8 +30,12 @@ var explode_ball=preload("res://scenes/explode_ball.tscn")
 var light_ray=preload("res://scenes/light_ray.tscn")
 var speed_arrow=preload("res://scenes/speedarrow.tscn")
 var fire_bomb=preload("res://scenes/fire.tscn")
-
-var range=150
+var damages=[]
+var speeds=[]
+var ranges=[]
+var damage:float
+var speed:float
+var range:float
 var cooldown_finished=true
 var cooldown_time=1
 var bullet=null
@@ -38,18 +43,27 @@ var menu_on=false
 var mouse_on=true
 var dragging=true
 var overlapping_tower=false
+var title=''
 var costs=[100,150,300]
 var priorities=['first','last','strongest','weakest','nearest','furthest']
 var priority_index=0
-
+var priority='first'
+var stats:Dictionary
 
 
 func _ready():
-	weapon.play(type+'_'+str(level))
 	if road:
 		exclusion = road.get_node('TowerExclusion') as TileMap
-	base.play(type+'_1')
 	global_position=Vector2(600,-100)
+	title = TowerData.STATS[type].name
+	tower_name.text=title
+	costs= TowerData.STATS[type].costs
+	stats=TowerData.STATS[type].stats
+	damages=stats.damage
+	speeds=stats.speed
+	ranges=stats.range
+	update()
+	
 func fire():
 	match type:
 		"1":
@@ -77,8 +91,8 @@ func _input(event: InputEvent) -> void:
 		else:
 			queue_free()
 		Global.building_mode = false
+		get_viewport().set_input_as_handled()
 		queue_redraw()
-		get_viewport().set_input_as_handled() 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if dragging or not event.is_action_pressed("drag"):
@@ -87,7 +101,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	if dragging:
+	if dragging or menu_on:
 		draw_circle(Vector2.ZERO,range,Color.WHITE,false,3)
 	if mouse_on and not dragging:
 		var size:Vector2=collision_shape_2d.shape.size
@@ -98,9 +112,7 @@ func check_valid_build():
 	if exclusion == null:
 		Global.build_valid = false
 		return
-
 	var mouse_pos = get_global_mouse_position()
-	
 	var cell = exclusion.local_to_map(exclusion.to_local(mouse_pos))
 	global_position=exclusion.to_global(exclusion.map_to_local(cell))
 	Global.build_valid = area_free(global_position) and not overlapping_tower
@@ -118,7 +130,15 @@ func is_mouse_over() -> bool:
 	var rect = Rect2(collision_shape_2d.position - size / 2.0, size)
 	return rect.has_point(to_local(get_global_mouse_position()))
 
+func update():
+	base.play(type+'_1')
+	weapon.play(type+'_'+str(level))
+	damage=damages[level-1]
+	range=ranges[level-1]
+	speed=speeds[level-1]
+	tower_icon.play(str(type)+'_'+str(level))
 func _process(delta: float) -> void:
+	
 	var over = is_mouse_over()
 	if over != mouse_on:
 		mouse_on = over
@@ -143,7 +163,7 @@ func _physics_process(delta: float) -> void:
 	overlapping_tower=false
 	var mouse_pos=get_global_mouse_position()
 	var direction=(mouse_pos-position).normalized()
-	velocity=direction*speed
+	velocity=direction*move_speed
 	var collision=move_and_collide(velocity*delta)
 	if global_position.distance_to(mouse_pos)<50:
 		global_position=mouse_pos

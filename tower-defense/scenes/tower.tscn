@@ -2435,16 +2435,16 @@ shape = SubResource("RectangleShape2D_1vivr")
 [node name="cooldown" type="Timer" parent="Timer" unique_id=1100249567]
 one_shot = true
 
-[node name="Menu" type="CanvasLayer" parent="." unique_id=749967554]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=749967554]
 
-[node name="Panel" type="Panel" parent="Menu" unique_id=710881622]
+[node name="Menu" type="Panel" parent="CanvasLayer" unique_id=710881622]
 offset_left = 33.0
 offset_top = -105.0
 offset_right = 225.0
 offset_bottom = 26.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_v1bxd")
 
-[node name="Panel" type="Panel" parent="Menu/Panel" unique_id=1429008286]
+[node name="Panel" type="Panel" parent="CanvasLayer/Menu" unique_id=1429008286]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 5.0
@@ -2452,7 +2452,7 @@ offset_right = 50.0
 offset_bottom = 48.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8vrlf")
 
-[node name="Panel2" type="Panel" parent="Menu/Panel" unique_id=779418906]
+[node name="Panel2" type="Panel" parent="CanvasLayer/Menu" unique_id=779418906]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 52.0
@@ -2460,7 +2460,7 @@ offset_right = 70.0
 offset_bottom = 102.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5w5c7")
 
-[node name="Panel3" type="Panel" parent="Menu/Panel" unique_id=1539234363]
+[node name="Panel3" type="Panel" parent="CanvasLayer/Menu" unique_id=1539234363]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 52.0
@@ -2468,7 +2468,7 @@ offset_right = 187.0
 offset_bottom = 102.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5w5c7")
 
-[node name="UpgradeButton" type="Button" parent="Menu/Panel" unique_id=1311868392]
+[node name="UpgradeButton" type="Button" parent="CanvasLayer/Menu" unique_id=1311868392]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 104.0
@@ -2483,13 +2483,13 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_rc43p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0mydw")
 text = "150"
 
-[node name="Icon" type="Sprite2D" parent="Menu/Panel/UpgradeButton" unique_id=235271016]
+[node name="Icon" type="Sprite2D" parent="CanvasLayer/Menu/UpgradeButton" unique_id=235271016]
 position = Vector2(10, 10)
 rotation = -1.5707964
 scale = Vector2(0.7516316, 1)
 texture = ExtResource("25_0mydw")
 
-[node name="CoinIcon" type="AnimatedSprite2D" parent="Menu/Panel/UpgradeButton" unique_id=1172043592]
+[node name="CoinIcon" type="AnimatedSprite2D" parent="CanvasLayer/Menu/UpgradeButton" unique_id=1172043592]
 position = Vector2(50, 10)
 scale = Vector2(1.1875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_8vrlf")
@@ -2497,7 +2497,7 @@ animation = &"default_2"
 autoplay = "default_2"
 frame_progress = 0.62871385
 
-[node name="SellButton" type="Button" parent="Menu/Panel" unique_id=695184032]
+[node name="SellButton" type="Button" parent="CanvasLayer/Menu" unique_id=695184032]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 104.0
@@ -2512,12 +2512,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_t6gji")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dk8x1")
 text = "50"
 
-[node name="Icon2" type="Sprite2D" parent="Menu/Panel/SellButton" unique_id=73799653]
+[node name="Icon2" type="Sprite2D" parent="CanvasLayer/Menu/SellButton" unique_id=73799653]
 position = Vector2(11, 10)
 rotation = -1.5707964
 texture = ExtResource("26_5w5c7")
 
-[node name="CoinIcon2" type="AnimatedSprite2D" parent="Menu/Panel/SellButton" unique_id=878559839]
+[node name="CoinIcon2" type="AnimatedSprite2D" parent="CanvasLayer/Menu/SellButton" unique_id=878559839]
 position = Vector2(49, 10.000008)
 scale = Vector2(1.1875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_8vrlf")
@@ -2525,7 +2525,7 @@ animation = &"default_2"
 autoplay = "default_2"
 frame_progress = 0.058104645
 
-[node name="PriorityButton" type="Button" parent="Menu/Panel" unique_id=197946322]
+[node name="PriorityButton" type="Button" parent="CanvasLayer/Menu" unique_id=197946322]
 layout_mode = 0
 offset_left = 130.0
 offset_top = 104.0
@@ -2539,7 +2539,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sdbll")
 theme_override_styles/hover = SubResource("StyleBoxFlat_di6vr")
 text = "first"
 
-[node name="TowerName" type="Label" parent="Menu/Panel" unique_id=414779766]
+[node name="TowerName" type="Label" parent="CanvasLayer/Menu" unique_id=414779766]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 11.0
@@ -2552,7 +2552,7 @@ theme_override_font_sizes/font_size = 12
 text = "Crossbow Tower
 Level: 1"
 
-[node name="Stats" type="Label" parent="Menu/Panel" unique_id=321430956]
+[node name="Stats" type="Label" parent="CanvasLayer/Menu" unique_id=321430956]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 47.0
@@ -2567,7 +2567,7 @@ Dmg: 25
 speed: 1.2
 range: 150"
 
-[node name="UpgradeStats" type="Label" parent="Menu/Panel" unique_id=1766516595]
+[node name="UpgradeStats" type="Label" parent="CanvasLayer/Menu" unique_id=1766516595]
 layout_mode = 0
 offset_left = 127.0
 offset_top = 46.0
@@ -2582,13 +2582,13 @@ Dmg: 50
 speed: 1.2
 range: 175"
 
-[node name="Tower Icon" type="AnimatedSprite2D" parent="Menu/Panel" unique_id=700853379]
+[node name="Tower Icon" type="AnimatedSprite2D" parent="CanvasLayer/Menu" unique_id=700853379]
 position = Vector2(29, 28)
 scale = Vector2(0.7708333, 0.75)
 sprite_frames = SubResource("SpriteFrames_qbdty")
 animation = &"3_2"
 
-[node name="Sprite2D" type="Sprite2D" parent="Menu/Panel" unique_id=835609439]
+[node name="Arrow" type="Sprite2D" parent="CanvasLayer/Menu" unique_id=835609439]
 position = Vector2(90, 77)
 scale = Vector2(2, 2)
 texture = ExtResource("25_0mydw")
@@ -2597,6 +2597,6 @@ texture = ExtResource("25_0mydw")
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="animation_finished" from="Weapon" to="." method="_on_weapon_animation_finished"]
 [connection signal="timeout" from="Timer/cooldown" to="." method="_on_cooldown_timeout"]
-[connection signal="pressed" from="Menu/Panel/UpgradeButton" to="." method="_on_upgrade_pressed"]
-[connection signal="pressed" from="Menu/Panel/SellButton" to="." method="_on_sell_pressed"]
-[connection signal="pressed" from="Menu/Panel/PriorityButton" to="." method="_on_priority_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/UpgradeButton" to="." method="_on_upgrade_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/SellButton" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/PriorityButton" to="." method="_on_priority_pressed"]
