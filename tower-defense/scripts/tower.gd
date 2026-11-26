@@ -5,7 +5,12 @@ class_name Tower
 @onready var cooldown: Timer = $Node/cooldown
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var menu: Panel = $Menu/Panel
-
+@onready var upgrade_button: Button = $Menu/Panel/UpgradeButton
+@onready var sell_button: Button = $Menu/Panel/SellButton
+@onready var priority_button: Button = $Menu/Panel/PriorityButton
+@onready var tower_name: Label = $Menu/Panel/TowerName
+@onready var stats: Label = $Menu/Panel/Stats
+@onready var upgrade_stats: Label = $Menu/Panel/UpgradeStats
 
 
 const top=10
@@ -29,6 +34,12 @@ var menu_on=false
 var mouse_on=true
 var dragging=true
 var overlapping_tower=false
+
+var priorities=['first','last','strongest','weakest','nearest','furthest']
+var priority_index=0
+
+
+
 func _ready():
 	weapon.play(type+'_'+str(level))
 	if road:
@@ -51,16 +62,20 @@ func fire():
 	bullet.global_position = global_position
 	
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("drag"):
-		if dragging:
-			if Global.build_valid: 
-				dragging=false
-			else:
-				queue_free()
-			Global.building_mode=false
+	if dragging and event.is_action_pressed("drag"):
+		if Global.build_valid:
+			dragging = false
 		else:
-			menu_on=mouse_on
+			queue_free()
+		Global.building_mode = false
 		queue_redraw()
+		get_viewport().set_input_as_handled() 
+
+func _unhandled_input(event: InputEvent) -> void:
+	if dragging or not event.is_action_pressed("drag"):
+		return
+	menu_on = mouse_on
+	queue_redraw()
 
 func _draw() -> void:
 	if dragging:
@@ -133,3 +148,16 @@ func _on_weapon_animation_finished() -> void:
 	if weapon.animation==(type+'_'+str(level)+'fire'):
 		fire()
 		weapon.play(type+'_'+str(level))
+
+
+func _on_upgrade_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_sell_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_priority_pressed() -> void:
+	priority_index+=1
+	priority_button.text=priorities[priority_index%6]
