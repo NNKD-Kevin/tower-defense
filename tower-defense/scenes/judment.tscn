@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dl2npwk7288hf"]
+
+[ext_resource type="Script" uid="uid://chemcvmujp780" path="res://scripts/judment.gd" id="1_g7k5v"]
+[ext_resource type="Texture2D" uid="uid://bv5ujgwq4ytfs" path="res://assets/towers/Tower_08_weapons/Tower 08 - Level 01 - Projectile.png" id="1_ms4u6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7k5v"]
+atlas = ExtResource("1_ms4u6")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i0na"]
+atlas = ExtResource("1_ms4u6")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dww16"]
+atlas = ExtResource("1_ms4u6")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnohf"]
+atlas = ExtResource("1_ms4u6")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnpo4"]
+atlas = ExtResource("1_ms4u6")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ex5"]
+atlas = ExtResource("1_ms4u6")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxm3t"]
+atlas = ExtResource("1_ms4u6")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7k5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i0na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dww16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnohf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnpo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ex5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxm3t")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8vrlf"]
+radius = 110.00455
+
+[node name="Judment" type="CharacterBody2D" unique_id=381180556]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_g7k5v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=848726234]
+sprite_frames = SubResource("SpriteFrames_1vivr")
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1970012699]
+shape = SubResource("CircleShape2D_8vrlf")
