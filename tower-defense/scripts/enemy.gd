@@ -68,7 +68,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_animation_finished() -> void:
 	if animation.animation==type+'death':
-		
 		queue_free()
 		return
 	if animation.animation!=type+'walk':
