@@ -86,6 +86,7 @@ func fire():
 			bullet=speed_arrow.instantiate()
 		"7":
 			bullet=fire_bomb.instantiate()  
+	bullet.global_position=weapon.global_position
 	bullet.range=range
 	bullet.level=level
 	bullet.add_collision_exception_with(self)
@@ -161,7 +162,8 @@ func _process(delta: float) -> void:
 		queue_redraw()
 	menu.visible=menu_on
 	menu.global_position=global_position+Vector2(30,-100)
-	base.global_position=global_position+Vector2(0,-(3-level)*9+26)
+	weapon.global_position=global_position-Vector2(0,-(3-level)*9)
+	base.global_position=global_position-Vector2(0,-26)
 	if dragging:
 		check_valid_build()
 	else:

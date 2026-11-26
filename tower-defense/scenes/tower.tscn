@@ -2422,7 +2422,7 @@ animation = &"6_1"
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"7_3fire"
+animation = &"1_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
 position = Vector2(-1, 27.5)
@@ -2573,9 +2573,8 @@ position = Vector2(90, 77)
 scale = Vector2(2, 2)
 texture = ExtResource("25_0mydw")
 
-[node name="judment" type="Button" parent="Menu/Panel" unique_id=1974214473]
+[node name="Menu_Panel#judment" type="Button" parent="." unique_id=1974214473]
 visible = false
-layout_mode = 0
 offset_left = -73.0
 offset_top = 24.0
 offset_right = 1.0
