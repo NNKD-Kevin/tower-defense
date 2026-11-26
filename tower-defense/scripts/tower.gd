@@ -52,7 +52,7 @@ var stats:Dictionary
 var spent=0
 var durations=[]
 var radiuses=[]
-var distance=[]
+var distances=[]
 
 func _ready():
 	if road:
@@ -67,9 +67,9 @@ func _ready():
 	speeds=stats.speed
 	ranges=stats.range
 	match type:
-		'2':var durations=stats.duration
-		'3':var radiuses=stats.radius
-		'4':var distances=stats.distance
+		'2': durations=stats.duration
+		'3': radiuses=stats.radius
+		'5': distances=stats.distance
 	update()
 
 func fire():
@@ -154,7 +154,18 @@ func update():
 	stats_label.text+='\nspeed: '+str(speed)
 	stats_label.text+='\nrange: '+str(range)
 	match type:
-		'2':stats_label.text+='\nDuration: '+durations[level-1]
+		'2':stats_label.text+='\nDuration: '+str(durations[level-1])
+		'3':stats_label.text+='\nRadius: '+str(radiuses[level-1])
+		'5':stats_label.text+='\nDistance: '+str(distances[level-1])
+	if level<3:
+		upgrade_stats.text='Level '+str(level+1)
+		upgrade_stats.text+='\nDmg: '+str(damages[level])
+		upgrade_stats.text+='\nspeed: '+str(speeds[level])
+		upgrade_stats.text+='\nrange: '+str(ranges[level])
+		match type:
+			'2':upgrade_stats.text+='\nDuration: '+str(durations[level])
+			'3':upgrade_stats.text+='\nRadius: '+str(radiuses[level])
+			'5':upgrade_stats.text+='\nDistance: '+str(distances[level])
 func _process(delta: float) -> void:
 	var over = is_mouse_over()
 	if over != mouse_on:
