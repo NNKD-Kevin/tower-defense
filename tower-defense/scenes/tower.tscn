@@ -1127,7 +1127,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"3_2fire",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1291,7 +1291,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"5_2fire",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1854,12 +1854,12 @@ script = ExtResource("1_ay4al")
 [node name="Base" type="AnimatedSprite2D" parent="." unique_id=1773876083]
 position = Vector2(0, 26)
 sprite_frames = SubResource("SpriteFrames_1vivr")
-animation = &"3_3"
+animation = &"6_1"
 
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"3_2fire"
+animation = &"6_1fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
 position = Vector2(-1, 27.5)
@@ -1930,7 +1930,7 @@ scale = Vector2(1.1875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_8vrlf")
 animation = &"default_2"
 autoplay = "default_2"
-frame_progress = 0.7431902
+frame_progress = 0.32129887
 
 [node name="SellButton" type="Button" parent="Menu/Panel" unique_id=695184032]
 layout_mode = 0
@@ -1958,7 +1958,7 @@ scale = Vector2(1.1875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_8vrlf")
 animation = &"default_2"
 autoplay = "default_2"
-frame_progress = 0.17261499
+frame_progress = 0.75070816
 
 [node name="PriorityButton" type="Button" parent="Menu/Panel" unique_id=197946322]
 layout_mode = 0
