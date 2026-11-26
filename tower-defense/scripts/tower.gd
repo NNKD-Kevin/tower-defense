@@ -34,7 +34,7 @@ var menu_on=false
 var mouse_on=true
 var dragging=true
 var overlapping_tower=false
-
+var costs=[100,150,300]
 var priorities=['first','last','strongest','weakest','nearest','furthest']
 var priority_index=0
 
@@ -65,6 +65,7 @@ func _input(event: InputEvent) -> void:
 	if dragging and event.is_action_pressed("drag"):
 		if Global.build_valid:
 			dragging = false
+			Global.coins-=costs[0]
 		else:
 			queue_free()
 		Global.building_mode = false
