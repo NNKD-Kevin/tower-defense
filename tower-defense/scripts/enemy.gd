@@ -74,23 +74,25 @@ func teleport_back(delta:float):
 	go-=1
 	var displace=velocity.length()*100*delta
 	var fake_position=Vector2(position)
-	distance-=displace
-	while true:
-		if fake_position.distance_to(Mapdata.road_map1[go])<=displace:
-			fake_position=Mapdata.road_map1[go]
-			print(displace)
-			displace-=fake_position.distance_to(Mapdata.road_map1[go])
-			print(displace)
-			if go>0:
-				go-=1
-		else:
-			var a=Mapdata.road_map1[go]-fake_position
-			a=a.normalized()*displace
-			fake_position+=a
-			displace=0
-			go+=1
-			
-		if displace==0: break
+	if distance>displace:
+		distance-=displace
+		while true:
+			if fake_position.distance_to(Mapdata.road_map1[go])<=displace:
+				fake_position=Mapdata.road_map1[go]
+				displace-=fake_position.distance_to(Mapdata.road_map1[go])
+				if go>0:
+					go-=1
+			else:
+				var a=Mapdata.road_map1[go]-fake_position
+				a=a.normalized()*displace
+				fake_position+=a
+				displace=0
+				go+=1
+				
+			if displace==0: break
+	else: 
+		distance=0
+		fake_position=Vector2(0,110)
 	position=fake_position
 	reverse=false
 
