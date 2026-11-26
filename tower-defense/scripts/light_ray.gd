@@ -4,6 +4,7 @@ extends CharacterBody2D
 const speed=1000
 var a=0
 var range=150
+var collider=null
 
 func _ready() -> void:
 	animate.animation='default'
@@ -24,17 +25,20 @@ func _process(delta: float) -> void:
 			animate.play('default')
 			var collision=move_and_collide(velocity*delta)
 			if collision:
-				var collider=collision.get_collider()
+				collider=collision.get_collider()
 				if collider is Enemy:
-					collider.hp-=100
-					collider.animation.play(collider.type+'hurt')
 					animate.play('explode')
 	else:
-		queue_free()
+		if animate.animation=='explode':
+			animate.play('explode')
+			global_position=collider.global_position
+		else:
+			queue_free()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animate.animation=='explode':
-		print('quan gay')
+		collider.hp-=150
+		collider.animation.play(collider.type+'hurt')
 		queue_free()
 		return
