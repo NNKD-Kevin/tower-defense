@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if reverse:
-		teleport_back()
+		teleport_back(delta)
 	else:
 		normal_go(delta)
 		
@@ -70,22 +70,28 @@ func normal_go(delta: float):
 		if go<len(Mapdata.road_map1)-1:
 			go+=1
 
-func teleport_back():
+func teleport_back(delta:float):
 	go-=1
-	var displace=velocity.length()*10
+	var displace=velocity.length()*100*delta
+	var fake_position=Vector2(position)
 	distance-=displace
 	while true:
-		if position.distance_to(Mapdata.road_map1[go])<=displace:
-			position=Mapdata.road_map1[go]
-			displace-=position.distance_to(Mapdata.road_map1[go])
-			if go>len(Mapdata.road_map1)-1:
+		if fake_position.distance_to(Mapdata.road_map1[go])<=displace:
+			fake_position=Mapdata.road_map1[go]
+			print(displace)
+			displace-=fake_position.distance_to(Mapdata.road_map1[go])
+			print(displace)
+			if go>0:
 				go-=1
 		else:
-			var a=Mapdata.road_map1[go]-position
+			var a=Mapdata.road_map1[go]-fake_position
 			a=a.normalized()*displace
-			position+=a
+			fake_position+=a
 			displace=0
+			go+=1
+			
 		if displace==0: break
+	position=fake_position
 	reverse=false
 
 func _on_animation_finished() -> void:

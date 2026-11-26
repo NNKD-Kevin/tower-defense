@@ -45,5 +45,5 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		return
 	else:
 		collider.reverse=true
-		animate.playe('explode')
+		animate.play('explode')
 		teleport=true
