@@ -92,7 +92,7 @@ func teleport_back(delta:float):
 			if displace==0: break
 	else: 
 		distance=0
-		fake_position=Vector2(0,110)
+		fake_position=Vector2(30,110)
 	position=fake_position
 	reverse=false
 
