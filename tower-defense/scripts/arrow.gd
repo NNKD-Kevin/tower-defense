@@ -33,3 +33,4 @@ func _process(delta: float) -> void:
 				queue_free()
 	else:
 		queue_free()
+		

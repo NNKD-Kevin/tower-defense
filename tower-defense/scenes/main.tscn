@@ -947,6 +947,7 @@ shadow_size = 5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8y0u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkv2x"]
+content_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbj1t"]
 
@@ -959,6 +960,7 @@ region = Rect2(0, 0, 62, 128)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muem4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dp3eg"]
+content_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ld40"]
 
@@ -971,6 +973,7 @@ region = Rect2(0, 0, 64.54001, 192)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqmmt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yc10j"]
+content_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jscy8"]
 
@@ -983,6 +986,7 @@ region = Rect2(0, 0, 65.74997, 128)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pm3ni"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6deb"]
+content_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_og1vs"]
 
@@ -995,6 +999,7 @@ region = Rect2(0, 0, 64.54001, 128)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2wyq8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxglm"]
+content_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yq6so"]
 
@@ -1007,6 +1012,7 @@ region = Rect2(0, 0, 64.80002, 128)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv21b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tel4y"]
+content_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkpxi"]
 
@@ -1019,6 +1025,7 @@ region = Rect2(0, 0, 64.80002, 128)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5q0nq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgi5k"]
+content_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8jky"]
 
@@ -1183,7 +1190,6 @@ theme_override_font_sizes/font_size = 30
 text = "Wave 0"
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=2022550937]
-visible = false
 offset_left = 138.0
 offset_top = 406.0
 offset_right = 960.0
@@ -1200,6 +1206,13 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_a8y0u")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_jkv2x")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jbj1t")
 icon = SubResource("AtlasTexture_auskg")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/tower1" unique_id=1967089739]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_tefeu")
+text = "100"
 
 [node name="tower2" type="Button" parent="CanvasLayer/Panel" unique_id=86148371]
 layout_mode = 0

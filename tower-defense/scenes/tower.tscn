@@ -1930,7 +1930,7 @@ scale = Vector2(1.1875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_8vrlf")
 animation = &"default_2"
 autoplay = "default_2"
-frame_progress = 0.32129887
+frame_progress = 0.06452138
 
 [node name="SellButton" type="Button" parent="Menu/Panel" unique_id=695184032]
 layout_mode = 0
@@ -1958,7 +1958,7 @@ scale = Vector2(1.1875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_8vrlf")
 animation = &"default_2"
 autoplay = "default_2"
-frame_progress = 0.75070816
+frame_progress = 0.49392825
 
 [node name="PriorityButton" type="Button" parent="Menu/Panel" unique_id=197946322]
 layout_mode = 0
