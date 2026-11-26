@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cr5eck5sgl2mc"]
+
+[ext_resource type="Script" uid="uid://d3ijya1cpgpso" path="res://scripts/speedarrow.gd" id="1_blovc"]
+[ext_resource type="Texture2D" uid="uid://bau13fje26lcy" path="res://assets/towers/Tower_06_weapons/Tower 06 - Level 01 - Projectile.png" id="2_okigp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8wf"]
+atlas = ExtResource("2_okigp")
+region = Rect2(0, 0, 6, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdnnr"]
+atlas = ExtResource("2_okigp")
+region = Rect2(6, 0, 6, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1axwn"]
+atlas = ExtResource("2_okigp")
+region = Rect2(12, 0, 6, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw8wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdnnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1axwn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(26, 6)
+
+[node name="Speedarrow" type="CharacterBody2D" unique_id=1808540158]
+script = ExtResource("1_blovc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2087380969]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_1vivr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013959094]
+shape = SubResource("RectangleShape2D_1vivr")
