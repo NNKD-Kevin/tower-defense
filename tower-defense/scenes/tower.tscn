@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://cisxfefof0wah" path="res://assets/towers/Tower_08_weapons/Tower 08 - Level 02 - Weapon.png" id="22_cjdug"]
 [ext_resource type="FontFile" uid="uid://cmpfgwq04rnkk" path="res://assets/Pixelout Personal Use Only.ttf" id="23_cjdug"]
 [ext_resource type="Texture2D" uid="uid://diotq4i3rmyel" path="res://assets/coin.png" id="24_dyfdg"]
+[ext_resource type="Texture2D" uid="uid://djqc1n0ddug4n" path="res://assets/arrow.png" id="25_0mydw"]
+[ext_resource type="Texture2D" uid="uid://b2rqugpa5ucxu" path="res://assets/cross.png" id="26_5w5c7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ay4al"]
 atlas = ExtResource("1_2x682")
@@ -1515,7 +1517,7 @@ animations = [{
 size = Vector2(78, 147)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1bxd"]
-bg_color = Color(0.7387652, 0.57096833, 0.23037094, 1)
+bg_color = Color(0.9371426, 0.7693408, 0.45289075, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -1526,8 +1528,56 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
+bg_color = Color(0.24313726, 0.69803923, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w5c7"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
-bg_color = Color(0.023357373, 0.6929189, 0.64543337, 1)
+resource_local_to_scene = true
+bg_color = Color(0, 1, 0.42745098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc43p"]
+bg_color = Color(0.27450982, 1, 0.4509804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mydw"]
+bg_color = Color(2.274178e-06, 0.43873596, 0.09347666, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -1625,6 +1675,176 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cf1d"]
+resource_local_to_scene = true
+bg_color = Color(1, 0.35686275, 0.42745098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6gji"]
+bg_color = Color(1, 0.4072455, 0.33865213, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dk8x1"]
+bg_color = Color(0.56078434, 0.14509805, 0.05882353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdbll"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.6117647, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di6vr"]
+bg_color = Color(0.0627451, 0.59607846, 0.99215686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbdty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl0gn")
+}],
+"loop": 0,
+"name": &"1_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2ndj")
+}],
+"loop": 1,
+"name": &"1_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw3tj")
+}],
+"loop": 1,
+"name": &"2_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i11fa")
+}],
+"loop": 1,
+"name": &"2_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tbrf")
+}],
+"loop": 1,
+"name": &"3_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vy2i")
+}],
+"loop": 1,
+"name": &"3_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8ho8")
+}],
+"loop": 1,
+"name": &"5_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8ho8")
+}],
+"loop": 1,
+"name": &"5_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43t3e")
+}],
+"loop": 1,
+"name": &"6_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsn3w")
+}],
+"loop": 1,
+"name": &"6_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gila3")
+}],
+"loop": 1,
+"name": &"7_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgho4")
+}],
+"loop": 1,
+"name": &"7_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoao8")
+}],
+"loop": 1,
+"name": &"8_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l8pb")
+}],
+"loop": 1,
+"name": &"8_2",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="CharacterBody2D" unique_id=1327188346]
 collision_layer = 4
 collision_mask = 4
@@ -1639,7 +1859,7 @@ animation = &"1_1"
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"1_1"
+animation = &"1_1fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
 position = Vector2(-1, 27.5)
@@ -1654,37 +1874,164 @@ one_shot = true
 
 [node name="Panel" type="Panel" parent="Menu" unique_id=710881622]
 offset_left = 33.0
-offset_top = -66.0
+offset_top = -105.0
 offset_right = 225.0
 offset_bottom = 26.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_v1bxd")
 
-[node name="Upgrade" type="Button" parent="Menu/Panel" unique_id=1311868392]
+[node name="Panel" type="Panel" parent="Menu/Panel" unique_id=1429008286]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 65.0
-offset_right = 66.0
-offset_bottom = 88.0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 50.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8vrlf")
+
+[node name="Panel2" type="Panel" parent="Menu/Panel" unique_id=779418906]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 52.0
+offset_right = 70.0
+offset_bottom = 102.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5w5c7")
+
+[node name="Panel3" type="Panel" parent="Menu/Panel" unique_id=1539234363]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 52.0
+offset_right = 187.0
+offset_bottom = 102.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5w5c7")
+
+[node name="UpgradeButton" type="Button" parent="Menu/Panel" unique_id=1311868392]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 104.0
+offset_right = 64.0
+offset_bottom = 127.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_fonts/font = ExtResource("23_cjdug")
+theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_1vivr")
-text = " 100"
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rc43p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0mydw")
+text = "150"
 
-[node name="Priority" type="Button" parent="Menu/Panel" unique_id=1737410390]
-layout_mode = 0
-offset_left = -33.0
-offset_top = 66.0
-offset_right = -25.0
-offset_bottom = 74.0
+[node name="Icon" type="Sprite2D" parent="Menu/Panel/UpgradeButton" unique_id=235271016]
+position = Vector2(10, 10)
+rotation = -1.5707964
+scale = Vector2(0.7516316, 1)
+texture = ExtResource("25_0mydw")
 
-[node name="CoinIcon" type="AnimatedSprite2D" parent="Menu/Panel" unique_id=1172043592]
-position = Vector2(17, 76)
+[node name="CoinIcon" type="AnimatedSprite2D" parent="Menu/Panel/UpgradeButton" unique_id=1172043592]
+position = Vector2(50, 10)
 scale = Vector2(1.1875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_8vrlf")
 animation = &"default_2"
 autoplay = "default_2"
+frame_progress = 0.6762288
+
+[node name="SellButton" type="Button" parent="Menu/Panel" unique_id=695184032]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 104.0
+offset_right = 127.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("23_cjdug")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_5cf1d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t6gji")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dk8x1")
+text = "50"
+
+[node name="Icon2" type="Sprite2D" parent="Menu/Panel/SellButton" unique_id=73799653]
+position = Vector2(11, 10)
+rotation = -1.5707964
+texture = ExtResource("26_5w5c7")
+
+[node name="CoinIcon2" type="AnimatedSprite2D" parent="Menu/Panel/SellButton" unique_id=878559839]
+position = Vector2(49, 10.000008)
+scale = Vector2(1.1875, 1.1875)
+sprite_frames = SubResource("SpriteFrames_8vrlf")
+animation = &"default_2"
+autoplay = "default_2"
+frame_progress = 0.10591836
+
+[node name="PriorityButton" type="Button" parent="Menu/Panel" unique_id=197946322]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 104.0
+offset_right = 189.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("23_cjdug")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_sdbll")
+theme_override_styles/hover = SubResource("StyleBoxFlat_di6vr")
+text = "first"
+
+[node name="TowerName" type="Label" parent="Menu/Panel" unique_id=414779766]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 11.0
+offset_right = 207.0
+offset_bottom = 34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("23_cjdug")
+theme_override_font_sizes/font_size = 12
+text = "Crossbow Tower
+Level: 1"
+
+[node name="Stats" type="Label" parent="Menu/Panel" unique_id=321430956]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 47.0
+offset_right = 166.0
+offset_bottom = 99.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_cjdug")
+theme_override_font_sizes/font_size = 8
+text = "
+Level 1
+Dmg: 25
+speed: 1.2
+range: 150"
+
+[node name="UpgradeStats" type="Label" parent="Menu/Panel" unique_id=1766516595]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 46.0
+offset_right = 277.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_cjdug")
+theme_override_font_sizes/font_size = 8
+text = "
+Level 2
+Dmg: 50
+speed: 1.2
+range: 175"
+
+[node name="Tower Icon" type="AnimatedSprite2D" parent="Menu/Panel" unique_id=700853379]
+position = Vector2(29, 28)
+scale = Vector2(0.7708333, 0.75)
+sprite_frames = SubResource("SpriteFrames_qbdty")
+animation = &"1_1"
+
+[node name="Sprite2D" type="Sprite2D" parent="Menu/Panel" unique_id=835609439]
+position = Vector2(90, 77)
+scale = Vector2(2, 2)
+texture = ExtResource("25_0mydw")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="animation_finished" from="Weapon" to="." method="_on_weapon_animation_finished"]
 [connection signal="timeout" from="Timer/cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="pressed" from="Menu/Panel/UpgradeButton" to="." method="_on_upgrade_pressed"]
+[connection signal="pressed" from="Menu/Panel/SellButton" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="Menu/Panel/PriorityButton" to="." method="_on_priority_pressed"]
