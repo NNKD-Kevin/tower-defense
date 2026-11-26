@@ -50,6 +50,9 @@ var priority_index=0
 var priority='first'
 var stats:Dictionary
 var spent=0
+var durations=[]
+var radiuses=[]
+var distance=[]
 
 func _ready():
 	if road:
@@ -137,7 +140,7 @@ func is_mouse_over() -> bool:
 	return rect.has_point(to_local(get_global_mouse_position()))
 
 func update():
-	base.play(type+'_1')
+	base.play(type+'_'+str(level))
 	weapon.play(type+'_'+str(level))
 	damage=damages[level-1]
 	range=ranges[level-1]
@@ -149,8 +152,9 @@ func update():
 	stats_label.text+='\nDmg: '+str(damage)
 	stats_label.text+='\nspeed: '+str(speed)
 	stats_label.text+='\nrange: '+str(range)
+	match type:
+		'2':stats_label.text+='\nDuration: '+durations[level-1]
 func _process(delta: float) -> void:
-	
 	var over = is_mouse_over()
 	if over != mouse_on:
 		mouse_on = over
@@ -195,6 +199,7 @@ func _on_upgrade_pressed() -> void:
 	if level<3 and Global.coins>=costs[level]:
 		Global.coins-=costs[level]
 		level+=1
+		update()
 
 func _on_sell_pressed() -> void:
 	Global.coins+=int(0.5*spent)
