@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*uid://kequh53k1ukw"
 Mapdata="*uid://ct3iyw6q4ddva"
 EnemyData="*uid://c5bosrsfhppox"
+TowerData="*uid://e56habfth34x"
 
 [display]
 
