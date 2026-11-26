@@ -8,6 +8,23 @@ extends Node2D
 @onready var red_overlay: ColorRect = $RedOverlay
 @onready var portal: AnimatedSprite2D = $Portal
 
+@onready var label: Label = $CanvasLayer/Panel/tower1/Label
+@onready var label_2: Label = $CanvasLayer/Panel/tower2/Label2
+@onready var label_3: Label = $CanvasLayer/Panel/tower3/Label3
+@onready var label_5: Label = $CanvasLayer/Panel/tower5/Label5
+@onready var label_6: Label = $CanvasLayer/Panel/tower6/Label6
+@onready var label_7: Label = $CanvasLayer/Panel/tower7/Label7
+@onready var label_8: Label = $CanvasLayer/Panel/tower8/Label8
+@onready var labels = {
+	'1': label, '2': label_2, '3': label_3, '5': label_5,
+	'6': label_6, '7': label_7, '8': label_8,
+}
+
+
+
+
+
+
 var shop_on=false
 var spawning=false
 var enemy=preload('res://scenes/enemy.tscn')
@@ -16,7 +33,8 @@ var to_spawn=[]
 func _ready() -> void:
 	green_overlay.visible=false
 	red_overlay.visible=false
-
+	for t in labels:
+		labels[t].text = str(TowerData.STATS[t].costs[0])
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("spawn"):
 		spawn_enemy('blood')
