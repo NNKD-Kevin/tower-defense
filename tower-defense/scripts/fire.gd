@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 				animate.play('explode')
 				collider.hp-=25
 				collider.animation.play(collider.type+'hurt')
+				collider.burn+=damage
 	else:
 		if animate.animation=='explode':
 			animate.play('explode')

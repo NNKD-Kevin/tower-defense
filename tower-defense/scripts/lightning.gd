@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 		var direction=(target.position-position).normalized()
 		rotation=direction.angle()
 		velocity= direction*speed
-		animate.play('default')
 		var collision=move_and_collide(velocity*delta)
 		if collision:
 			var collider=collision.get_collider()

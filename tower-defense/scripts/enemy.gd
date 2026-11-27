@@ -16,6 +16,8 @@ var distance=0
 var reverse=false
 var teleport_distance=0
 var coin=0
+var burn=0
+
 
 func _ready() -> void:
 	animation.animation_finished.connect(_on_animation_finished)

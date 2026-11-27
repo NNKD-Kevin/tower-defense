@@ -18,17 +18,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0 and animate.animation=='default':
 		collider=target
-		animate.play('explode')
+		animate.play(str(level)+'_explode')
 	else:
-		if animate.animation=='explode':
-			animate.play('explode')
+		if animate.animation==(str(level)+'_explode'):
+			animate.play(str(level)+'_explode')
 			global_position=collider.global_position
 		else:
 			queue_free()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if animate.animation=='explode' and teleport:
+	if animate.animation==(str(level)+'_explode') and teleport:
 		collider.hp-=damage
 		collider.animation.play(collider.type+'hurt')
 		queue_free()
@@ -36,5 +36,5 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	else:
 		collider.teleport_distance=distance
 		collider.reverse=true
-		animate.play('explode')
+		animate.play(str(level)+'_explode')
 		teleport=true
