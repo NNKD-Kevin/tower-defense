@@ -110,7 +110,7 @@ script = ExtResource("1_4rish")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133578558]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1vivr")
-autoplay = "default"
+animation = &"explode"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=960334456]
 shape = SubResource("CircleShape2D_1vivr")

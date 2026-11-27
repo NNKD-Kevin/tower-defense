@@ -9,9 +9,11 @@ var teleport=false
 var priority='first'
 var level=1
 var damage=10
+var distance=50
 func _ready() -> void:
 	animate.animation='default'
 	damage=TowerData.STATS['5'].stats.damage[level-1]
+	distance=TowerData.STATS['5'].stats.distance[level-1]
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0 and animate.animation=='default':
 		match priority:
@@ -43,6 +45,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		queue_free()
 		return
 	else:
+		collider.teleport_distance=distance
 		collider.reverse=true
 		animate.play('explode')
 		teleport=true

@@ -14,7 +14,7 @@ var damage=10
 var moving=true
 var distance=0
 var reverse=false
-
+var teleport_distance=0
 
 
 func _ready() -> void:
@@ -72,7 +72,7 @@ func normal_go(delta: float):
 
 func teleport_back(delta:float):
 	go-=1
-	var displace=velocity.length()*75*delta
+	var displace=velocity.length()*teleport_distance*delta
 	var fake_position=Vector2(position)
 	if distance>displace:
 		distance-=displace
