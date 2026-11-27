@@ -21,15 +21,8 @@ func _process(delta: float) -> void:
 			'last':check_last()
 			'strongest':check_strong()
 			'weakest':check_weak()
-		var direction=(Global.enemies[a].position-position).normalized()
-		rotation=direction.angle()
-		velocity= direction*speed
-		animate.play('default')
-		var collision=move_and_collide(velocity*delta)
-		if collision:
-			collider=collision.get_collider()
-			if collider is Enemy:
-				animate.play('explode')
+		collider=Global.enemies[a]
+		animate.play('explode')
 	else:
 		if animate.animation=='explode':
 			animate.play('explode')
