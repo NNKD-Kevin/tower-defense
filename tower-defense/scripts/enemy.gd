@@ -34,7 +34,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	health_bar.value=hp
-	if hp<=0:
+	if hp<=0 and animation.animation!=type+'death':
 		Global.enemies.erase(self)
 		moving=false
 		Global.coins+=coin
