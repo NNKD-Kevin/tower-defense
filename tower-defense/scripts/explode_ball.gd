@@ -10,12 +10,12 @@ var damage=10
 var target=null
 
 func _ready() -> void:
-	animate.animation='default'
+	animate.play(str(level))
 	damage=TowerData.STATS['3'].stats.damage[level-1]
 	
 
 func _process(delta: float) -> void:
-	if len(Global.enemies)>0 and animate.animation=='default':
+	if len(Global.enemies)>0 and animate.animation==str(level):
 		var direction=(target.position-position).normalized()
 		rotation=direction.angle()
 		velocity= direction*speed
@@ -23,20 +23,20 @@ func _process(delta: float) -> void:
 		if collision:
 			collider=collision.get_collider()
 			if collider is Enemy:
-				animate.play('explode')
+				animate.play(str(level)+'_explode')
 				for i in Global.enemies:
 					if collider.position.distance_to(i.position)<=40:
 						i.hp-=damage
 						i.animation.play(collider.type+'hurt')
 	else:
-		if animate.animation=='explode':
-			animate.play('explode')
+		if animate.animation==(str(level)+'_explode'):
+			animate.play(str(level)+'_explode')
 		else:
 			queue_free()
 
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if animate.animation=='explode':
+	if animate.animation==(str(level)+'_explode'):
 		queue_free()
 		return
