@@ -112,3 +112,10 @@ func _on_animation_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	moving=true
+
+
+func _on_timer_2_timeout() -> void:
+	if burn>0:
+		burn-=1
+		hp-=burn
+		animation.play(type+'hurt')
