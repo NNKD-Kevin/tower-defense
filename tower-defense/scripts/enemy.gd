@@ -82,8 +82,6 @@ func teleport_back(delta:float):
 				fake_position=Mapdata.road_map1[go]
 				if go>0:
 					go-=1
-				else:
-					print('gay')
 			else:
 				var a=Mapdata.road_map1[go]-fake_position
 				a=a.normalized()*displace
@@ -95,7 +93,6 @@ func teleport_back(delta:float):
 	else: 
 		distance=0
 		fake_position=Vector2(30,110)
-		print('outrange')
 	position=fake_position
 	reverse=false
 
