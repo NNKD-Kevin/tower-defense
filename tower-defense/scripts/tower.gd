@@ -53,6 +53,9 @@ var spent=0
 var durations=[]
 var radiuses=[]
 var distances=[]
+var a=0
+var check=false
+var target=null
 
 func _ready():
 	if road:
@@ -89,7 +92,7 @@ func fire():
 	bullet.global_position=weapon.global_position
 	bullet.range=range
 	bullet.level=level
-	bullet.priority=priority
+	bullet.target=target
 	bullet.add_collision_exception_with(self)
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
@@ -169,6 +172,7 @@ func update():
 			'3':upgrade_stats.text+='\nRadius: '+str(radiuses[level])
 			'5':upgrade_stats.text+='\nDistance: '+str(distances[level])
 func _process(delta: float) -> void:
+	target=null
 	var over = is_mouse_over()
 	if over != mouse_on:
 		mouse_on = over
@@ -180,14 +184,63 @@ func _process(delta: float) -> void:
 	if dragging:
 		check_valid_build()
 	else:
+		check=false
 		if len(Global.enemies)>0:
 			for e in Global.enemies:
 				if position.distance_to(e.position)<=range:
-					var direction=(e.position-position).normalized()
-					if type=='1' or type=='7' or type=='6': weapon.rotation=direction.angle()-TAU*3/4
-					if weapon.animation!=type+'_'+str(level)+'fire':
-						weapon.play(type+'_'+str(level)+'fire')
+					check=true
 					break
+			if check:
+				if weapon.animation!=type+'_'+str(level)+'fire':
+					weapon.play(type+'_'+str(level)+'fire')
+	if weapon.animation==type+'_'+str(level)+'fire' and check:
+		match priority:
+			'first':check_first()
+			'last':check_last()
+			'strongest':check_strong()
+			'weakest':check_weak()
+			'nearest':check_near()
+			'furthest':check_far()
+		var direction=(Global.enemies[a].position-position).normalized()
+		if type=='1' or type=='7' or type=='6': weapon.rotation=direction.angle()-TAU*3/4
+		target=Global.enemies[a]
+func check_first():
+	a=0
+	while (position.distance_to(Global.enemies[a].position)>range):
+		if a<len(Global.enemies)-1:
+			a+=1
+func check_last():
+	a=len(Global.enemies)-1
+	while (position.distance_to(Global.enemies[a].position)>range):
+		if a>0:
+			a-=1
+func check_weak():
+	var b=1000000000000000
+	for i in Global.enemies:
+		if i.hp<b:
+			b=i.hp
+			a=Global.enemies.find(i)
+func check_strong():
+	var b=0
+	for i in Global.enemies:
+		if i.hp>b:
+			b=i.hp
+			a=Global.enemies.find(i)
+func check_far():
+	var b=0
+	for i in Global.enemies:
+		var c=position.distance_to(i.position)
+		if c>b and c<range:
+			b=c
+			a=Global.enemies.find(i)
+func check_near():
+	var b=1000000
+	for i in Global.enemies:
+		var c=position.distance_to(i.position)
+		if c<b and c<range:
+			b=c
+			a=Global.enemies.find(i)
+					
 func _physics_process(delta: float) -> void:
 	if not dragging:
 		return
@@ -206,7 +259,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_weapon_animation_finished() -> void:
 	if weapon.animation==(type+'_'+str(level)+'fire'):
-		fire()
+		if target!=null: fire()
 		weapon.play(type+'_'+str(level))
 
 
