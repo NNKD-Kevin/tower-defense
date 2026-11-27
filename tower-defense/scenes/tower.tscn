@@ -824,10 +824,6 @@ region = Rect2(2400, 96, 96, 96)
 atlas = ExtResource("16_xxmqw")
 region = Rect2(2496, 96, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_raba3"]
-atlas = ExtResource("15_3hems")
-region = Rect2(384, 96, 96, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6o5x"]
 atlas = ExtResource("20_t6gji")
 region = Rect2(384, 96, 96, 96)
@@ -1512,7 +1508,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hrq2k")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"3_3fire",
 "speed": 5.0
 }, {
@@ -1682,7 +1678,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_raba3")
+"texture": SubResource("AtlasTexture_d6o5x")
 }],
 "loop": 1,
 "name": &"5_3",
@@ -1860,7 +1856,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7iyvy")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"6_3fire",
 "speed": 5.0
 }, {
@@ -1953,7 +1949,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6i047")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"7_3fire",
 "speed": 4.0
 }, {
@@ -2082,7 +2078,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i1x2q")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"8_3fire",
 "speed": 5.0
 }]
@@ -2451,9 +2447,7 @@ animation = &"6_1"
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"5_3fire"
-frame = 22
-frame_progress = 1.0
+animation = &"8_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
 position = Vector2(-1, 27.5)

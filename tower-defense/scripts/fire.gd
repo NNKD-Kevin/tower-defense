@@ -10,25 +10,17 @@ func _ready() -> void:
 	animate.animation='default'
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0 and animate.animation=='default':
-		while (position.distance_to(Global.enemies[a].position)>range):
-			if a<len(Global.enemies)-1:
-				a+=1
-			else:
-				a=0
-				if (position.distance_to(Global.enemies[a].position)>range):
-					queue_free()
-				break
-		if a<len(Global.enemies):
-			var direction=(Global.enemies[a].position-position).normalized()
-			rotation=direction.angle()
-			velocity= direction*speed
-			var collision=move_and_collide(velocity*delta)
-			if collision:
-				collider=collision.get_collider()
-				if collider is Enemy:
-					animate.play('explode')
-					collider.hp-=25
-					collider.animation.play(collider.type+'hurt')
+		check_first()
+		var direction=(Global.enemies[a].position-position).normalized()
+		rotation=direction.angle()
+		velocity= direction*speed
+		var collision=move_and_collide(velocity*delta)
+		if collision:
+			collider=collision.get_collider()
+			if collider is Enemy:
+				animate.play('explode')
+				collider.hp-=25
+				collider.animation.play(collider.type+'hurt')
 	else:
 		if animate.animation=='explode':
 			animate.play('explode')
@@ -41,3 +33,32 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if animate.animation=='explode':
 		queue_free()
 		return
+
+func check_first():
+	a=0
+	while (position.distance_to(Global.enemies[a].position)>range):
+		if a<len(Global.enemies)-1:
+			a+=1
+		else:
+			queue_free()
+			break
+func check_last():
+	a=len(Global.enemies)-1
+	while (position.distance_to(Global.enemies[a].position)>range):
+		if a>0:
+			a-=1
+		else:
+			queue_free()
+			break
+func check_weak():
+	var b=1000000000000000
+	for i in Global.enemies:
+		if i.hp<b:
+			b=i.hp
+			a=Global.enemies.find(i)
+func check_strong():
+	var b=0
+	for i in Global.enemies:
+		if i.hp>b:
+			b=i.hp
+			a=Global.enemies.find(i)
