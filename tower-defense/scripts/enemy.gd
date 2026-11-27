@@ -104,6 +104,7 @@ func teleport_back(delta:float):
 
 func _on_animation_finished() -> void:
 	if animation.animation==type+'death':
+		if self in Global.enemies: Global.enemies.erase(self)
 		queue_free()
 		return
 	if animation.animation!=type+'walk':
