@@ -6,9 +6,10 @@ var a=0
 var range=150
 var level=1
 var priority='first'
+var damage=10
 func _ready() -> void:
 	animated_sprite_2d.play(str(level))
-	visible=false
+	damage=TowerData.STATS['1'].stats.damage[level-1]
 
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0:
@@ -25,7 +26,7 @@ func _process(delta: float) -> void:
 		if collision:
 			var collider=collision.get_collider()
 			if collider is Enemy:
-				collider.hp-=25
+				collider.hp-=damage
 				collider.animation.play(collider.type+'hurt')
 			queue_free()
 	else:

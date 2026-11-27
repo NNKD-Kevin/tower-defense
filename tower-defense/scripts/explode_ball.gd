@@ -7,8 +7,12 @@ var range=150
 var collider=null
 var priority='first'
 var level=1
+var damage=10
 func _ready() -> void:
 	animate.animation='default'
+	damage=TowerData.STATS['3'].stats.damage[level-1]
+	
+
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0 and animate.animation=='default':
 		match priority:
@@ -26,7 +30,7 @@ func _process(delta: float) -> void:
 				animate.play('explode')
 				for i in Global.enemies:
 					if collider.position.distance_to(i.position)<=40:
-						i.hp-=25
+						i.hp-=damage
 						i.animation.play(collider.type+'hurt')
 	else:
 		if animate.animation=='explode':

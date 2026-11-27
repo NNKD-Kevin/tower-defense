@@ -7,6 +7,7 @@ var range=150
 var collider=null
 var priority='first'
 var level=1
+var damage=10
 func _ready() -> void:
 	animate.animation='default'
 func _process(delta: float) -> void:

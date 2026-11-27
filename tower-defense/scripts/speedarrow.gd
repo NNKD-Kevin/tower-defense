@@ -6,9 +6,11 @@ var a=0
 var range=150
 var level=1
 var priority='first'
+var damage=10
+
 func _ready() -> void:
 	animated_sprite_2d.play(str(level))
-	visible=false
+	damage=TowerData.STATS['6'].stats.damage[level-1]
 
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0:

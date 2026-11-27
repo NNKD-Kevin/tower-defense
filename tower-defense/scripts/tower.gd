@@ -146,6 +146,7 @@ func update():
 	weapon.play(type+'_'+str(level))
 	damage=damages[level-1]
 	range=ranges[level-1]
+	queue_redraw()
 	speed=speeds[level-1]
 	tower_icon.play(str(type)+'_'+str(level))
 	sell_button.text=str(int(spent/2))

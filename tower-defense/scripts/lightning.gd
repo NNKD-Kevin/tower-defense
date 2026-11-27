@@ -5,6 +5,10 @@ var a=0
 var range=150
 var priority='first'
 var level=1
+var damage=10
+func _ready() -> void:
+	animate.play(str(level))
+	damage=TowerData.STATS['2'].stats.damage[level-1]
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0:
 		match priority:

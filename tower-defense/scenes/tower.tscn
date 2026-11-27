@@ -1160,9 +1160,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_85u2j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xl0gn")
 }],
 "loop": 0,
 "name": &"1_1fire",
@@ -1228,7 +1225,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"1_3fire",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1510,7 +1507,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"3_3fire",
-"speed": 5.0
+"speed": 2.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1592,7 +1589,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"5_1fire",
-"speed": 5.0
+"speed": 4.6
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1674,7 +1671,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"5_2fire",
-"speed": 8.0
+"speed": 5.75
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1756,7 +1753,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"5_3fire",
-"speed": 5.0
+"speed": 5.75
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1790,7 +1787,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"6_1fire",
-"speed": 5.0
+"speed": 28.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1824,7 +1821,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"6_2fire",
-"speed": 5.0
+"speed": 35.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1858,7 +1855,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"6_3fire",
-"speed": 5.0
+"speed": 70.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2447,7 +2444,7 @@ animation = &"6_1"
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"8_2"
+animation = &"8_1fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
 position = Vector2(-1, 27.5)

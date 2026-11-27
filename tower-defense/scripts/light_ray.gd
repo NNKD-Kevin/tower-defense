@@ -8,8 +8,10 @@ var collider=null
 var teleport=false
 var priority='first'
 var level=1
+var damage=10
 func _ready() -> void:
 	animate.animation='default'
+	damage=TowerData.STATS['5'].stats.damage[level-1]
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0 and animate.animation=='default':
 		match priority:
