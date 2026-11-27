@@ -89,6 +89,7 @@ func fire():
 	bullet.global_position=weapon.global_position
 	bullet.range=range
 	bullet.level=level
+	bullet.priority=priority
 	bullet.add_collision_exception_with(self)
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
@@ -220,4 +221,5 @@ func _on_sell_pressed() -> void:
 
 func _on_priority_pressed() -> void:
 	priority_index+=1
-	priority_button.text=priorities[priority_index%6]
+	priority=priorities[priority_index%6]
+	priority_button.text=priority

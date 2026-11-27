@@ -5,12 +5,17 @@ const speed=1000
 var a=0
 var range=150
 var collider=null
-
+var priority='first'
+var level=1
 func _ready() -> void:
 	animate.animation='default'
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0 and animate.animation=='default':
-		check_first()
+		match priority:
+			'first':check_first()
+			'last':check_last()
+			'strongest':check_strong()
+			'weakest':check_weak()
 		var direction=(Global.enemies[a].position-position).normalized()
 		rotation=direction.angle()
 		velocity= direction*speed

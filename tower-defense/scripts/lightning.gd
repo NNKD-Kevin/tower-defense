@@ -3,9 +3,15 @@ extends CharacterBody2D
 const speed=1000
 var a=0
 var range=150
+var priority='first'
+var level=1
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0:
-		check_first()
+		match priority:
+			'first':check_first()
+			'last':check_last()
+			'strongest':check_strong()
+			'weakest':check_weak()
 		var direction=(Global.enemies[a].position-position).normalized()
 		rotation=direction.angle()
 		velocity= direction*speed
