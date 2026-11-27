@@ -63,12 +63,12 @@ func check_last():
 func check_weak():
 	var b=1000000000000000
 	for i in Global.enemies:
-		if i.hp<b:
+		if i.hp<b and position.distance_to(i.position)<range:
 			b=i.hp
 			a=Global.enemies.find(i)
 func check_strong():
 	var b=0
 	for i in Global.enemies:
-		if i.hp>b:
+		if i.hp>b and position.distance_to(i.position)<range:
 			b=i.hp
 			a=Global.enemies.find(i)
