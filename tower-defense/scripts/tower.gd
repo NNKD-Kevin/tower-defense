@@ -88,8 +88,7 @@ func fire():
 		"6":
 			bullet=speed_arrow.instantiate()
 		"7":
-			bullet=fire_bomb.instantiate()  
-	bullet.global_position=weapon.global_position
+			bullet=fire_bomb.instantiate()
 	bullet.range=range
 	bullet.level=level
 	bullet.target=target
@@ -116,7 +115,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _draw() -> void:
 	if dragging or menu_on:
-		draw_circle(Vector2.ZERO,range,Color.WHITE,false,3)
+		draw_circle(weapon.position,range,Color.WHITE,false,3)
 	if mouse_on and not dragging:
 		var size:Vector2=collision_shape_2d.shape.size
 		var rect=Rect2(collision_shape_2d.position-size/2.0,size)
@@ -187,7 +186,7 @@ func _process(delta: float) -> void:
 		check=false
 		if len(Global.enemies)>0:
 			for e in Global.enemies:
-				if position.distance_to(e.position)<=range:
+				if weapon.global_position.distance_to(e.global_position)<=range:
 					check=true
 					break
 			if check:
@@ -201,42 +200,42 @@ func _process(delta: float) -> void:
 			'weakest':check_weak()
 			'nearest':check_near()
 			'furthest':check_far()
-		var direction=(Global.enemies[a].position-position).normalized()
+		var direction=(Global.enemies[a].global_position-weapon.global_position).normalized()
 		if type=='1' or type=='7' or type=='6': weapon.rotation=direction.angle()-TAU*3/4
 		target=Global.enemies[a]
 func check_first():
 	a=0
-	while (position.distance_to(Global.enemies[a].position)>range):
+	while (weapon.global_position.distance_to(Global.enemies[a].global_position)>range):
 		if a<len(Global.enemies)-1:
 			a+=1
 func check_last():
 	a=len(Global.enemies)-1
-	while (position.distance_to(Global.enemies[a].position)>range):
+	while (weapon.global_position.distance_to(Global.enemies[a].global_position)>range):
 		if a>0:
 			a-=1
 func check_weak():
 	var b=1000000000000000
 	for i in Global.enemies:
-		if i.hp<b and position.distance_to(Global.enemies[a].position)<=range:
+		if i.hp<b and weapon.global_position.distance_to(Global.enemies[a].global_position)<=range:
 			b=i.hp
 			a=Global.enemies.find(i)
 func check_strong():
 	var b=0
 	for i in Global.enemies:
-		if i.hp>b and position.distance_to(Global.enemies[a].position)<=range:
+		if i.hp>b and weapon.global_position.distance_to(Global.enemies[a].global_position)<=range:
 			b=i.hp
 			a=Global.enemies.find(i)
 func check_far():
 	var b=0
 	for i in Global.enemies:
-		var c=position.distance_to(i.position)
+		var c=weapon.global_position.distance_to(i.global_position)
 		if c>b and c<range:
 			b=c
 			a=Global.enemies.find(i)
 func check_near():
 	var b=1000000
 	for i in Global.enemies:
-		var c=position.distance_to(i.position)
+		var c=weapon.global_position.distance_to(i.global_position)
 		if c<b and c<range:
 			b=c
 			a=Global.enemies.find(i)

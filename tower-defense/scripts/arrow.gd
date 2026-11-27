@@ -11,6 +11,7 @@ var target=null
 func _ready() -> void:
 	animated_sprite_2d.play(str(level))
 	damage=TowerData.STATS['1'].stats.damage[level-1]
+	visible=false
 
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0:
