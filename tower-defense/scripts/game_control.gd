@@ -1,5 +1,6 @@
 extends Node2D
 @onready var spawn_timer: Timer = $SpawnTimer
+@onready var wave_timer: Timer = $WaveTimer
 @onready var wave_count: Label = $CanvasLayer/WaveCount
 @onready var coin_count: Label = $CanvasLayer/CoinCount/Label
 @onready var panel: Panel = $CanvasLayer/Panel
@@ -7,6 +8,8 @@ extends Node2D
 @onready var green_overlay: ColorRect = $GreenOverlay
 @onready var red_overlay: ColorRect = $RedOverlay
 @onready var portal: AnimatedSprite2D = $Portal
+@onready var start: Button = $CanvasLayer/Start
+@onready var skip_button: Button = $CanvasLayer/SkipButton
 
 @onready var label: Label = $CanvasLayer/Panel/tower1/Label
 @onready var label_2: Label = $CanvasLayer/Panel/tower2/Label2
@@ -30,14 +33,17 @@ var spawning=false
 var enemy=preload('res://scenes/enemy.tscn')
 var index=0
 var to_spawn=[]
+
 func _ready() -> void:
 	green_overlay.visible=false
 	red_overlay.visible=false
 	for t in labels:
 		labels[t].text = str(TowerData.STATS[t].costs[0])
+		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("spawn"):
 		spawn_enemy('blood')
+		
 func spawn_enemy(type:String):
 	var e=enemy.instantiate()
 	e.add_to_group('enemies')
@@ -45,6 +51,8 @@ func spawn_enemy(type:String):
 	Global.enemies.append(e)
 	add_child(e)
 func _process(delta: float) -> void:
+	if wave_timer.time_left<25:
+		skip_button.visible=true
 	wave_count.text='Wave '+str(Global.wave)
 	coin_count.text=':'+str(Global.coins)
 	panel.visible=shop_on
@@ -61,6 +69,10 @@ func _on_start_pressed() -> void:
 	spawn_timer.start()
 	spawning=true
 	Global.wave+=1
+	start.visible=false
+	skip_button.visible=true
+	wave_timer.start()
+	
 
 
 
@@ -113,3 +125,24 @@ func _on_tower_7_pressed() -> void:
 
 func _on_tower_8_pressed() -> void:
 	buy_tower('8')
+
+
+func _on_wave_timer_timeout() -> void:
+	if Global.wave<len(EnemyData.WAVES)-1:
+		index=0
+		to_spawn=EnemyData.WAVES[str(Global.wave)]
+		spawn_timer.start()
+		spawning=true
+		Global.wave+=1
+		wave_timer.start()
+
+
+func _on_skip_button_pressed() -> void:
+	if Global.wave<len(EnemyData.WAVES) and skip_button.visible:
+		index=0
+		to_spawn=EnemyData.WAVES[str(Global.wave)]
+		spawn_timer.start()
+		spawning=true
+		Global.wave+=1
+		wave_timer.start()
+		skip_button.visible=false

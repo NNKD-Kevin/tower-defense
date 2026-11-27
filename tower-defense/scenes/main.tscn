@@ -918,8 +918,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
-bg_color = Color(0.8291128, 0.71638757, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkv2x"]
+bg_color = Color(0.827451, 0.17254902, 0.17254902, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -927,7 +927,7 @@ corner_radius_bottom_left = 20
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbdty"]
-bg_color = Color(0.5205644, 0.31411725, 0.024739495, 1)
+bg_color = Color(0.52156866, 0.02745098, 0.023529412, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -935,7 +935,15 @@ corner_radius_bottom_left = 20
 shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
-bg_color = Color(0.7964649, 0.54335326, 0.007949468, 1)
+bg_color = Color(0.79607844, 0, 0.007843138, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
+bg_color = Color(0.8291128, 0.71638757, 0, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -1163,6 +1171,20 @@ sprite_frames = SubResource("SpriteFrames_1vivr")
 autoplay = "default"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=544640337]
+
+[node name="SkipButton" type="Button" parent="CanvasLayer" unique_id=657867958]
+visible = false
+offset_left = 433.0
+offset_top = 14.0
+offset_right = 594.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_tefeu")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbdty")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8vrlf")
+text = "Skip"
 
 [node name="Start" type="Button" parent="CanvasLayer" unique_id=922936099]
 offset_left = 433.0
@@ -1473,7 +1495,13 @@ autoplay = "default"
 frame_progress = 0.8552528
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=265355700]
+wait_time = 0.5
 
+[node name="WaveTimer" type="Timer" parent="." unique_id=246127278]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/SkipButton" to="." method="_on_skip_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/tower1" to="." method="_on_tower_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/tower2" to="." method="_on_tower_2_pressed"]
@@ -1484,3 +1512,4 @@ frame_progress = 0.8552528
 [connection signal="pressed" from="CanvasLayer/Panel/tower8" to="." method="_on_tower_8_pressed"]
 [connection signal="pressed" from="CanvasLayer/Shop" to="." method="_on_shop_pressed"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

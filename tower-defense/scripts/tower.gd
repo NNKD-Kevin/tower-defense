@@ -14,7 +14,7 @@ class_name Tower
 @onready var tower_icon: AnimatedSprite2D = $"CanvasLayer/Menu/Tower Icon"
 
 
-const top=10
+const top=5
 const bottom=85
 const left=20
 const right=20
@@ -266,6 +266,7 @@ func _on_weapon_animation_finished() -> void:
 func _on_upgrade_pressed() -> void:
 	if level<3 and Global.coins>=costs[level]:
 		Global.coins-=costs[level]
+		spent+=costs[level]
 		level+=1
 		update()
 

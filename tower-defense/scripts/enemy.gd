@@ -15,7 +15,7 @@ var moving=true
 var distance=0
 var reverse=false
 var teleport_distance=0
-
+var coin=0
 
 func _ready() -> void:
 	animation.animation_finished.connect(_on_animation_finished)
@@ -28,16 +28,17 @@ func _ready() -> void:
 	damage=stats.damage
 	animation.play(type+'walk')
 	health_bar.max_value=max_hp
+	coin=stats.coin
 
 func _process(delta: float) -> void:
 	health_bar.value=hp
 	if hp<=0:
 		Global.enemies.erase(self)
 		moving=false
+		Global.coins+=coin
 		animation.play(type+'death')
 	elif not moving and timer.is_stopped():
 		timer.start()
-		
 
 func _physics_process(delta: float) -> void:
 	if reverse:

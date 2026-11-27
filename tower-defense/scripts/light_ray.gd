@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animate.animation=='explode' and teleport:
-		collider.hp-=25
+		collider.hp-=damage
 		collider.animation.play(collider.type+'hurt')
 		queue_free()
 		return
