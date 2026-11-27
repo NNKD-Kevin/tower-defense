@@ -186,6 +186,8 @@ func _process(delta: float) -> void:
 		check=false
 		if len(Global.enemies)>0:
 			for e in Global.enemies:
+				if not is_instance_valid(e):
+					return
 				if weapon.global_position.distance_to(e.global_position)<=range:
 					check=true
 					break
