@@ -72,6 +72,9 @@ func normal_go(delta: float):
 		position=Mapdata.road_map1[go]
 		if go<len(Mapdata.road_map1)-1:
 			go+=1
+		else:
+			Global.health-=damage
+			queue_free()
 
 func teleport_back(delta:float):
 	go-=1

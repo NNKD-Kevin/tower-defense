@@ -1133,6 +1133,12 @@ content_margin_bottom = 20.0
 atlas = ExtResource("12_jkv2x")
 region = Rect2(0.7999878, 64, 64.8, 128)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5gy4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auskg"]
+bg_color = Color(3.946722e-06, 0.71826464, 0.41777122, 1)
+
 [node name="Node2D2" type="Node2D" unique_id=1826028556]
 script = ExtResource("1_tbgi4")
 
@@ -1493,6 +1499,23 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tbgi4")
 autoplay = "default"
 frame_progress = 0.8552528
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer" unique_id=364164717]
+offset_left = 801.0
+offset_top = 655.0
+offset_right = 1034.0
+offset_bottom = 692.0
+theme_override_styles/background = SubResource("StyleBoxFlat_v5gy4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_auskg")
+value = 100.0
+
+[node name="Health" type="Label" parent="CanvasLayer" unique_id=1595859311]
+offset_left = 801.0
+offset_top = 632.0
+offset_right = 944.0
+offset_bottom = 655.0
+theme_override_fonts/font = ExtResource("5_tefeu")
+text = "Kingdom Health:"
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=265355700]
 wait_time = 0.5

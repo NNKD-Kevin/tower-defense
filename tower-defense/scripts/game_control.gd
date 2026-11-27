@@ -10,6 +10,7 @@ extends Node2D
 @onready var portal: AnimatedSprite2D = $Portal
 @onready var start: Button = $CanvasLayer/Start
 @onready var skip_button: Button = $CanvasLayer/SkipButton
+@onready var health_bar: ProgressBar = $CanvasLayer/HealthBar
 
 @onready var label: Label = $CanvasLayer/Panel/tower1/Label
 @onready var label_2: Label = $CanvasLayer/Panel/tower2/Label2
@@ -51,6 +52,7 @@ func spawn_enemy(type:String):
 	Global.enemies.append(e)
 	add_child(e)
 func _process(delta: float) -> void:
+	health_bar.value=Global.health
 	if wave_timer.time_left<25:
 		skip_button.visible=true
 	wave_count.text='Wave '+str(Global.wave)
@@ -64,14 +66,9 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	index=0
-	to_spawn=EnemyData.WAVES[str(Global.wave)]
-	spawn_timer.start()
-	spawning=true
-	Global.wave+=1
 	start.visible=false
 	skip_button.visible=true
-	wave_timer.start()
+	skip_wave()
 	
 
 
@@ -126,23 +123,21 @@ func _on_tower_7_pressed() -> void:
 func _on_tower_8_pressed() -> void:
 	buy_tower('8')
 
-
-func _on_wave_timer_timeout() -> void:
+func skip_wave():
 	if Global.wave<len(EnemyData.WAVES)-1:
+		Global.coins+=100+20*Global.wave
 		index=0
 		to_spawn=EnemyData.WAVES[str(Global.wave)]
 		spawn_timer.start()
 		spawning=true
 		Global.wave+=1
 		wave_timer.start()
+
+func _on_wave_timer_timeout() -> void:
+	skip_wave()
 
 
 func _on_skip_button_pressed() -> void:
-	if Global.wave<len(EnemyData.WAVES) and skip_button.visible:
-		index=0
-		to_spawn=EnemyData.WAVES[str(Global.wave)]
-		spawn_timer.start()
-		spawning=true
-		Global.wave+=1
-		wave_timer.start()
+	if skip_button.visible:
+		skip_wave()
 		skip_button.visible=false
