@@ -20,6 +20,8 @@ func _process(delta: float) -> void:
 			'last':check_last()
 			'strongest':check_strong()
 			'weakest':check_weak()
+			'nearest':check_near()
+			'furthest':check_far()
 		var direction=(Global.enemies[a].position-position).normalized()
 		rotation=direction.angle()
 		velocity= direction*speed
@@ -71,4 +73,18 @@ func check_strong():
 	for i in Global.enemies:
 		if i.hp>b and position.distance_to(i.position)<range:
 			b=i.hp
+			a=Global.enemies.find(i)
+func check_far():
+	var b=0
+	for i in Global.enemies:
+		var c=position.distance_to(i.position)
+		if c>b and c<range:
+			b=c
+			a=Global.enemies.find(i)
+func check_near():
+	var b=1000000
+	for i in Global.enemies:
+		var c=position.distance_to(i.position)
+		if c<b and c<range:
+			b=c
 			a=Global.enemies.find(i)
