@@ -8,10 +8,16 @@ var priority='first'
 var level=1
 var damage=10
 var target=null
+var radius=0
 
 func _ready() -> void:
 	animate.play(str(level))
 	damage=TowerData.STATS['3'].stats.damage[level-1]
+	radius=TowerData.STATS['3'].stats.radius[level-1]
+	match level:
+		1: scale=Vector2(radius/40.0, radius/40.0)
+		2: scale=Vector2(radius/40.0, radius/40.0)
+		3: scale=Vector2(radius/40.0, radius/40.0)
 	
 
 func _process(delta: float) -> void:
@@ -25,7 +31,7 @@ func _process(delta: float) -> void:
 			if collider is Enemy:
 				animate.play(str(level)+'_explode')
 				for i in Global.enemies:
-					if collider.position.distance_to(i.position)<=40:
+					if collider.position.distance_to(i.position)<=radius:
 						i.hp-=damage
 						i.animation.play(collider.type+'hurt')
 	else:
