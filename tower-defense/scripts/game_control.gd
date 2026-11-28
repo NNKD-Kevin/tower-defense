@@ -53,7 +53,7 @@ func spawn_enemy(type:String):
 	add_child(e)
 func _process(delta: float) -> void:
 	health_bar.value=Global.health
-	if wave_timer.time_left<25:
+	if wave_timer.time_left<20:
 		skip_button.visible=true
 	wave_count.text='Wave '+str(Global.wave)
 	coin_count.text=':'+str(Global.coins)
@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 
 func _on_start_pressed() -> void:
 	start.visible=false
-	skip_button.visible=true
+	skip_button.visible=false
 	skip_wave()
 	
 
@@ -140,4 +140,4 @@ func _on_wave_timer_timeout() -> void:
 func _on_skip_button_pressed() -> void:
 	if skip_button.visible:
 		skip_wave()
-		skip_button.visible=false
+	skip_button.visible=false
