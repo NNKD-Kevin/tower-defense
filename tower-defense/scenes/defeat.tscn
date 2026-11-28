@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dxco28v13veca"]
+
+[ext_resource type="FontFile" uid="uid://cmpfgwq04rnkk" path="res://assets/Pixelout Personal Use Only.ttf" id="1_5bdnp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbdty"]
+bg_color = Color(0.18932778, 0.1893278, 0.18932769, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5gy4"]
+bg_color = Color(0.3083999, 0.30839992, 0.30839983, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Node2D" type="Node2D" unique_id=806184808]
+
+[node name="Panel" type="Panel" parent="." unique_id=196212325]
+offset_right = 1051.0
+offset_bottom = 707.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1vivr")
+
+[node name="Label" type="Label" parent="." unique_id=932847555]
+offset_left = 70.0
+offset_top = 58.0
+offset_right = 964.0
+offset_bottom = 238.0
+theme_override_fonts/font = ExtResource("1_5bdnp")
+theme_override_font_sizes/font_size = 180
+text = "YOU LOSE!"
+
+[node name="Button" type="Button" parent="." unique_id=432164112]
+offset_left = 308.0
+offset_top = 385.0
+offset_right = 678.0
+offset_bottom = 580.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_5bdnp")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_8vrlf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbdty")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v5gy4")
+text = "RETRY"

@@ -52,6 +52,9 @@ func spawn_enemy(type:String):
 	Global.enemies.append(e)
 	add_child(e)
 func _process(delta: float) -> void:
+	if Global.health<=0:
+		get_tree().change_scene_to_file("res://scenes/defeat.tscn")
+		return
 	health_bar.value=Global.health
 	if wave_timer.time_left<20:
 		skip_button.visible=true
