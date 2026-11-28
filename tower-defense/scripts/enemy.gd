@@ -75,6 +75,7 @@ func normal_go(delta: float):
 			go+=1
 		else:
 			Global.health-=damage
+			Global.enemies.erase(self)
 			queue_free()
 
 func teleport_back(delta:float):
@@ -121,3 +122,4 @@ func _on_timer_2_timeout() -> void:
 		burn-=1
 		hp-=burn
 		animation.play(type+'hurt')
+		print(burn)

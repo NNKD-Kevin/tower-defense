@@ -11,7 +11,7 @@ var target=null
 
 func _ready() -> void:
 	animate.animation='default'
-	damage=TowerData.STATS['1'].stats.damage[level-1]
+	damage=TowerData.STATS['7'].stats.damage[level-1]
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0 and animate.animation=='default':
 		if target not in Global.enemies:
@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 			collider=collision.get_collider()
 			if collider is Enemy:
 				animate.play('explode')
-				collider.animation.play(collider.type+'hurt')
 				collider.burn+=damage
 	else:
 		if animate.animation=='explode':
