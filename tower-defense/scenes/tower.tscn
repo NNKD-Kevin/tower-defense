@@ -316,29 +316,29 @@ region = Rect2(96, 0, 96, 96)
 atlas = ExtResource("5_jfguu")
 region = Rect2(192, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2vbvo"]
-atlas = ExtResource("5_jfguu")
-region = Rect2(192, 0, 96, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_tk33x"]
-atlas = ExtResource("3_ktxwe")
-region = Rect2(288, 0, 96, 96)
+atlas = ExtResource("5_jfguu")
+region = Rect2(384, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvtdn"]
-atlas = ExtResource("3_ktxwe")
+atlas = ExtResource("5_jfguu")
 region = Rect2(480, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_64mlj"]
-atlas = ExtResource("3_ktxwe")
+atlas = ExtResource("5_jfguu")
 region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ngdi0"]
-atlas = ExtResource("3_ktxwe")
+atlas = ExtResource("5_jfguu")
 region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3e26d"]
-atlas = ExtResource("3_ktxwe")
+atlas = ExtResource("5_jfguu")
 region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raba3"]
+atlas = ExtResource("5_jfguu")
+region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fikwv"]
 atlas = ExtResource("11_dk8x1")
@@ -1175,9 +1175,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2vbvo")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_tk33x")
 }, {
 "duration": 1.0,
@@ -1191,6 +1188,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3e26d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raba3")
 }],
 "loop": 0,
 "name": &"1_2fire",
@@ -2444,7 +2444,7 @@ animation = &"6_1"
 [node name="Weapon" type="AnimatedSprite2D" parent="." unique_id=983096380]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_23jat")
-animation = &"8_1fire"
+animation = &"1_2fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088451784]
 position = Vector2(-1, 27.5)
