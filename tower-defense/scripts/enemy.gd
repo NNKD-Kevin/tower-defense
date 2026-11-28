@@ -24,7 +24,8 @@ func _ready() -> void:
 	var stats=EnemyData.STATS[type]
 	position=Mapdata.road_map1[go]+Vector2(30,0)
 	go+=1
-	max_hp=stats.max_hp
+	max_hp=stats.max_hp 
+	if Global.wave>6:max_hp+=(50*Global.wave-6)
 	hp=max_hp
 	speed=stats.speed
 	damage=stats.damage

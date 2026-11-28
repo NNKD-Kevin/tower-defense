@@ -13,5 +13,7 @@ const WAVES={
 	'5':['goblin','goblin','goblin','goblin','goblin','blood','blood'],
 	'6':['devil','devil'],
 	'7':['devil','devil','devil','blood','blood'],
-	'8':['blood','blood','blood','blood','blood','blood','blood','blood','blood','blood','blood','blood','blood','blood']
+	'8':['blood','blood','blood','blood','blood','blood','blood','blood','blood','blood','blood','blood','blood','blood'],
+	'9':['devil','devil','devil','devil','devil','blood','blood','blood','blood','blood'],
+	'10':['devil']
 }

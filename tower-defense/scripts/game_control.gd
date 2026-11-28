@@ -124,7 +124,7 @@ func _on_tower_8_pressed() -> void:
 	buy_tower('8')
 
 func skip_wave():
-	if Global.wave<len(EnemyData.WAVES)-1:
+	if Global.wave<len(EnemyData.WAVES):
 		Global.coins+=110+20*Global.wave
 		index=0
 		to_spawn=EnemyData.WAVES[str(Global.wave)]
