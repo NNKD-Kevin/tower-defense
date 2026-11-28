@@ -22,19 +22,26 @@ func _process(delta: float) -> void:
 	else:
 		if animate.animation==(str(level)+'_explode'):
 			animate.play(str(level)+'_explode')
-			global_position=collider.global_position
+			if collider in Global.enemies: global_position=collider.global_position
+			else: queue_free()
 		else:
 			queue_free()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if animate.animation==(str(level)+'_explode') and teleport:
-		collider.hp-=damage
-		collider.animation.play(collider.type+'hurt')
-		queue_free()
-		return
-	else:
-		collider.teleport_distance=distance
-		collider.reverse=true
-		animate.play(str(level)+'_explode')
-		teleport=true
+	if animate.animation==(str(level)+'_explode'):
+		if teleport:
+			if collider in Global.enemies:
+				collider.hp-=damage
+				collider.animation.play(collider.type+'hurt')
+			queue_free()
+			return
+		else:
+			if collider in Global.enemies:
+				collider.teleport_distance=distance
+				collider.reverse=true
+				animate.play(str(level)+'_explode')
+				teleport=true
+			else:
+				queue_free()
+				return	

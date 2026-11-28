@@ -22,6 +22,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if len(Global.enemies)>0 and animate.animation==str(level):
+		if target not in Global.enemies:
+			queue_free()
+			return
 		var direction=(target.position-position).normalized()
 		rotation=direction.angle()
 		velocity= direction*speed

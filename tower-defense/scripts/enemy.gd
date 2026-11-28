@@ -61,12 +61,13 @@ func normal_go(delta: float):
 		var collision=move_and_collide(velocity*delta)
 		distance+=(velocity*delta).length()
 	for i in Global.enemies:
-		if i!=self and i.distance<distance:
-			var index1=Global.enemies.find(i)
-			var index2=Global.enemies.find(self)
-			if index1<index2:
-				Global.enemies[index1]=self
-				Global.enemies[index2]=i
+		if (i and self) in Global.enemies:
+			if i!=self and i.distance<distance:
+				var index1=Global.enemies.find(i)
+				var index2=Global.enemies.find(self)
+				if index1<index2:
+					Global.enemies[index1]=self
+					Global.enemies[index2]=i
 				
 	if position.distance_to(Mapdata.road_map1[go])<velocity.length()*delta:
 		position=Mapdata.road_map1[go]
