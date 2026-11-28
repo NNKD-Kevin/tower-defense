@@ -1,5 +1,6 @@
 # tower-defense
-https://nnkd-kevin.itch.io/an-ordinary-tower-defense-game
+<img width="1050" height="698" alt="WhatsApp Image 2026-11-28 at 21 50 26" src="https://github.com/user-attachments/assets/514b3827-801b-4c61-856a-6c1dec75bc52" />
+
 ## I. What is this project ?
 - This is a strategic tower defense game I've made in Godot game engine with my friend [philogamer](https://github.com/philogamer) for a week. Where you place down guarding towers to defend your kingdom from the incoming invasion of monsters in a fantasy setting.
 
