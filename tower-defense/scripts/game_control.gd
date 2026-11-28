@@ -101,7 +101,7 @@ func buy_tower(type):
 		add_child(e)
 		shop_on= not shop_on
 		Global.building_mode=true
-	
+
 func _on_tower_1_pressed() -> void:
 	buy_tower('1')
 	

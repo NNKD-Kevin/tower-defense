@@ -1428,6 +1428,7 @@ autoplay = "default"
 frame_progress = 0.62871045
 
 [node name="tower8" type="Button" parent="CanvasLayer/Panel" unique_id=454157653]
+visible = false
 layout_mode = 0
 offset_left = 721.0
 offset_top = 52.0
@@ -1532,7 +1533,6 @@ one_shot = true
 [connection signal="pressed" from="CanvasLayer/Panel/tower5" to="." method="_on_tower_5_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/tower6" to="." method="_on_tower_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/tower7" to="." method="_on_tower_7_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/tower8" to="." method="_on_tower_8_pressed"]
 [connection signal="pressed" from="CanvasLayer/Shop" to="." method="_on_shop_pressed"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
