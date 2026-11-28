@@ -3,6 +3,6 @@ var lives=3
 var wave=1
 var health=100
 var enemies=[]
-var coins=100
+var coins=1000
 var build_valid=false
 var building_mode=false
