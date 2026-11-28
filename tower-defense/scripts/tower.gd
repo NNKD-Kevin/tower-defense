@@ -219,28 +219,28 @@ func check_weak():
 	var b=1000000000000000
 	for i in Global.enemies:
 		if i in Global.enemies:
-			if i.hp<b and weapon.global_position.distance_to(Global.enemies[a].global_position)<=range:
+			if i.hp<b and weapon.global_position.distance_to(i.global_position)<=range:
 				b=i.hp
 				a=Global.enemies.find(i)
 func check_strong():
 	var b=0
 	for i in Global.enemies:
 		if i in Global.enemies:
-			if i.hp>b and weapon.global_position.distance_to(Global.enemies[a].global_position)<=range:
+			if i.hp>b and weapon.global_position.distance_to(i.global_position)<=range:
 				b=i.hp
 				a=Global.enemies.find(i)
 func check_far():
 	var b=0
 	for i in Global.enemies:
 		var c=weapon.global_position.distance_to(i.global_position)
-		if c>b and c<range:
+		if c>b and c<=range:
 			b=c
 			a=Global.enemies.find(i)
 func check_near():
 	var b=1000000
 	for i in Global.enemies:
 		var c=weapon.global_position.distance_to(i.global_position)
-		if c<b and c<range:
+		if c<b and c<=range:
 			b=c
 			a=Global.enemies.find(i)
 					
